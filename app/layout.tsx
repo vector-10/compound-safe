@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Web3Provider from "../components/Web3Provider";
+import Web3Provider from "@/components/Web3Provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CompoundSafe",
-  description: "Lend and Borrow without Getting Liquidated on-chain",
+  description: "Lend and Borrow with reduced liquidation risks Liquidated on-chain",
 };
 
 export default function RootLayout({

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Lend and Borrow with reduced liquidation risks Liquidated on-chain",
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 export default function RootLayout({
   children,
 }: Readonly<{

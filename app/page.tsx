@@ -39,7 +39,7 @@ const Page = () => {
                             
                         </div>
 
-                        <div className='flex items-center justify-center'>
+                        <div className='md:flex items-center justify-center hidden'>
                             <ThemeToggle />
                             
                             <Link 
@@ -65,21 +65,16 @@ const Page = () => {
 
             {/* Hero Section */}
             <main className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
-                <div className="text-center max-w-4xl mx-auto">
+                <div className="text-center max-w-3xl md:max-w-5xl mx-auto">
                     {/* Main Heading - Mobile First */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight ">
-                        NEVER GET
-                        
-                        
-                        <span className="text-blue-600">LIQUIDATED</span>
-                        <br />
-                        AGAIN
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight ">
+                    LEND CONFIDENTLY, <span className="text-blue-600">BORROW SECURELY. STAY LIQUID</span>
                     </h1>
 
                     {/* Subtitle */}
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
-                        Your personal DeFi safety assistant. Get clear warnings, plain-English explanations, 
-                        and automatic alerts before your Compound positions become risky.
+                    "The smart way to use Compound Finance. Monitor your positions, 
+                    get instant alerts, and keep earning while staying safe from unexpected liquidation."
                     </p>
 
                     {/* CTA Buttons */}

@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from 'react';
+import Image from 'next/image'
 import Link from 'next/link';
+import { Shield } from 'lucide-react'
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Page = () => {
@@ -14,14 +16,12 @@ const Page = () => {
                 <div className="mx-auto px-4 sm:px-6 lg:px-8">
                     <nav className="flex items-center justify-between h-16 lg:h-20">
 
-                        <div className="flex items-center space-x-2 lg:space-x-3">
-                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-sm lg:text-lg">CS</span>
-                            </div>
-                            <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
-                                CompoundSafe
-                            </span>
-                        </div>
+                    <div className="flex items-center space-x-1 lg:space-x-2">
+                        <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
+                            CompoundSafe
+                        </span>
+                        <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
+                    </div>
 
                         <div className="hidden lg:flex items-center space-x-8">
                             <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
@@ -81,14 +81,12 @@ const Page = () => {
             }`}>
                 {/* Menu Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
-                    <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">CS</span>
+                    <div className="flex items-center space-x-1 lg:space-x-2">
+                            <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
+                                CompoundSafe
+                            </span>
+                            <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                         </div>
-                        <span className="text-lg font-semibold text-gray-900 dark:text-white">
-                            CompoundSafe
-                        </span>
-                    </div>
                     <button 
                         onClick={() => setMobileMenuOpen(false)}
                         className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -165,7 +163,7 @@ const Page = () => {
 
                 
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
-                        The smart way to use Compound Finance. Monitor your positions, 
+                        In DeFi, the smartest way to play is safe, CompoundSafe helps you monitor your positions, 
                         get instant alerts, and keep earning while staying safe from unexpected liquidation.
                     </p>
 
@@ -182,6 +180,21 @@ const Page = () => {
                         </button>
                     </div>
 
+                    <div className="relative mb-16 sm:mb-20">
+                        <div className="relative max-w-5xl mx-auto px-4 sm:px-0">
+                            <div className="relative rounded-xl overflow-hidden shadow-2xl">
+                                <Image 
+                                    src="/dashimage.png"
+                                    alt="CompoundSafe Dashboard Preview"
+                                    width={1097} 
+                                    height={699}  
+                                    className="w-full h-auto"
+                                    priority={true}  
+                                />
+                                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-blue-600/30 via-blue-600/15 to-transparent" />
+                            </div>
+                        </div>
+                    </div>
                
                     <div className="text-center">
                         <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wide">
@@ -191,8 +204,8 @@ const Page = () => {
                             <span className="text-sm sm:text-base font-semibold">COMPOUND</span>
                             <span className="text-sm sm:text-base font-semibold">ETHEREUM</span>
                             <span className="text-sm sm:text-base font-semibold">CHAINLINK</span>
-                            <span className="text-sm sm:text-base font-semibold">OPENSEA</span>
-                            <span className="text-sm sm:text-base font-semibold">UNISWAP</span>
+                            <span className="text-sm sm:text-base font-semibold">CONVICTION</span>
+                            <span className="text-sm sm:text-base font-semibold">HYDRA</span>
                         </div>
                     </div>
                 </div>

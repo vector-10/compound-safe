@@ -168,7 +168,7 @@ const Page = () => {
                     </p>
 
              
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 py-[3rem]">
                         <Link 
                             href="/dashboard"
                             className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
@@ -191,7 +191,7 @@ const Page = () => {
                                     className="w-full h-auto"
                                     priority={true}  
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-blue-600/30 via-blue-600/15 to-transparent" />
+                                <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-blue-800/30 via-blue-800/15 to-transparent" />
                             </div>
                         </div>
                     </div>

@@ -18,7 +18,7 @@ interface PartnerLogoProps {
 const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, hoverable = true }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { theme } = useTheme();
-  const isDark = theme === 'dark';
+  //const isDark = theme === 'dark';
 
 
   const logoMap: Record<string, string> = {

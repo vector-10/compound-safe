@@ -15,11 +15,11 @@ export function GridBackground() {
       const y = (clientY / window.innerHeight) * 100
       
       grid.style.background = `
-        radial-gradient(circle at ${x}% ${y}%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px)
-      `
-      grid.style.backgroundSize = `100% 100%, 50px 50px, 50px 50px`
+        radial-gradient(circle at ${x}% ${y}%, rgba(156, 163, 175, 0.3) 0%, transparent 30%),
+        linear-gradient(rgba(156, 163, 175, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(156, 163, 175, 0.15) 1px, transparent 1px)
+        `
+        grid.style.backgroundSize = `100% 100%, 8px 8px, 8px 8px`
     }
 
     document.addEventListener('mousemove', handleMouseMove)
@@ -32,13 +32,13 @@ export function GridBackground() {
   return (
     <div
       ref={gridRef}
-      className="fixed inset-0 pointer-events-none z-0"
+      className="fixed inset-0 pointer-events-none z-10 opacity-30"
       style={{
         background: `
-          linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px)
+          linear-gradient(rgba(156, 163, 175, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(156, 163, 175, 0.05) 1px, transparent 1px)
         `,
-        backgroundSize: '50px 50px',
+        backgroundSize: '8px 8px',  
       }}
     />
   )

@@ -4,14 +4,15 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Page = () => {
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
-            {/* Header Navigation */}
-            <header className="border-b border-gray-200 dark:border-gray-800">
+        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors relative">
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none md:hidden" />
+            
+            <header className="border-b border-gray-200 dark:border-gray-800 relative z-10">
                 <div className="mx-auto px-4 sm:px-6 lg:px-8">
                     <nav className="flex items-center justify-between h-16 lg:h-20">
-                        {/* Logo */}
+
                         <div className="flex items-center space-x-2 lg:space-x-3">
-                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-600 rounded-xs flex items-center justify-center">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                                 <span className="text-white font-bold text-sm lg:text-lg">CS</span>
                             </div>
                             <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
@@ -19,27 +20,25 @@ const Page = () => {
                             </span>
                         </div>
 
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center space-x-8 ">
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
+                        <div className="hidden lg:flex items-center space-x-8">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
                                 Home
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
                                 About
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
                                 Technology
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
                                 Docs
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
                                 Contact
-                            </a>                           
-                            
+                            </a>
                         </div>
 
-                        <div className='md:flex items-center justify-center hidden'>
+                        <div className="md:flex items-center space-x-4 hidden">
                             <ThemeToggle />
                             
                             <Link 
@@ -50,7 +49,6 @@ const Page = () => {
                             </Link>
                         </div>
 
-                
                         <div className="lg:hidden flex items-center space-x-3">
                             <ThemeToggle />
                             <button className="text-gray-600 dark:text-gray-300">
@@ -63,21 +61,25 @@ const Page = () => {
                 </div>
             </header>
 
-            {/* Hero Section */}
-            <main className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+
+            <main className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 relative z-20 mt-[5vh] sm:mt-0">
                 <div className="text-center max-w-3xl md:max-w-5xl mx-auto">
-                    {/* Main Heading - Mobile First */}
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight ">
-                    LEND CONFIDENTLY, <span className="text-blue-600">BORROW SECURELY. STAY LIQUID</span>
+                  
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-10 sm:mb-8 leading-tight">
+                        LEND WITH CONFIDENCE,
+                        <br />
+                        <span className="text-blue-600">BORROW WITH PROTECTION,</span>
+                        <br />
+                        STAY LIQUID
                     </h1>
 
-                    {/* Subtitle */}
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
-                    "The smart way to use Compound Finance. Monitor your positions, 
-                    get instant alerts, and keep earning while staying safe from unexpected liquidation."
+                
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
+                        The smart way to use Compound Finance. Monitor your positions, 
+                        get instant alerts, and keep earning while staying safe from unexpected liquidation.
                     </p>
 
-                    {/* CTA Buttons */}
+             
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16">
                         <Link 
                             href="/dashboard"
@@ -90,7 +92,7 @@ const Page = () => {
                         </button>
                     </div>
 
-                    {/* Trusted Partners - Simple Text Version */}
+               
                     <div className="text-center">
                         <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wide">
                             BACKED BY TRUSTED PARTNERS

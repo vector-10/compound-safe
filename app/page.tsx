@@ -154,7 +154,7 @@ const Page = () => {
             <main className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 relative z-20 mt-[5vh] sm:mt-0">
                 <div className="text-center max-w-3xl md:max-w-5xl mx-auto">
                   
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-10 sm:mb-8 leading-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-10 sm:mb-8 leading-tight">
                         LEND WITH CONFIDENCE,
                         <br />
                         <span className="text-blue-600">BORROW WITH PROTECTION,</span>

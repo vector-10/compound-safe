@@ -11,7 +11,7 @@ const Page = () => {
                     <nav className="flex items-center justify-between h-16 lg:h-20">
                         {/* Logo */}
                         <div className="flex items-center space-x-2 lg:space-x-3">
-                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-600 rounded-xs flex items-center justify-center">
                                 <span className="text-white font-bold text-sm lg:text-lg">CS</span>
                             </div>
                             <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
@@ -20,34 +20,37 @@ const Page = () => {
                         </div>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center space-x-8">
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm">
+                        <div className="hidden lg:flex items-center space-x-8 ">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
                                 Home
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
                                 About
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
                                 Technology
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
                                 Docs
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-md">
                                 Contact
-                            </a>
+                            </a>                           
                             
+                        </div>
+
+                        <div className='flex items-center justify-center'>
                             <ThemeToggle />
                             
                             <Link 
                                 href="/dashboard" 
-                                className="bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors"
+                                className="bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 py-3 rounded-xs text-sm font-medium transition-colors"
                             >
-                                LAUNCH RIPPLE
+                                GET STARTED
                             </Link>
                         </div>
 
-                        {/* Mobile menu + theme toggle */}
+                
                         <div className="lg:hidden flex items-center space-x-3">
                             <ThemeToggle />
                             <button className="text-gray-600 dark:text-gray-300">
@@ -64,10 +67,10 @@ const Page = () => {
             <main className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
                 <div className="text-center max-w-4xl mx-auto">
                     {/* Main Heading - Mobile First */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight tracking-tight">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight ">
                         NEVER GET
-                        <br className="hidden sm:block" />
-                        <span className="sm:hidden"> </span>
+                        
+                        
                         <span className="text-blue-600">LIQUIDATED</span>
                         <br />
                         AGAIN
@@ -83,11 +86,11 @@ const Page = () => {
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16">
                         <Link 
                             href="/dashboard"
-                            className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
+                            className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
                         >
                             LAUNCH COMPOUND SAFE
                         </Link>
-                        <button className="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
+                        <button className="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
                             SEE HOW IT WORKS
                         </button>
                     </div>

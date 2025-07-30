@@ -15,8 +15,9 @@ const eslintConfig = [
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "error", 
-        { "argsIgnorePattern": "^_|children" }
-      ]
+        { "argsIgnorePattern": "^_|children" }        
+      ],
+      "react/no-unescaped-entities": "off" 
     }
   }
 ];

@@ -38,7 +38,7 @@ export function GridBackground() {
           linear-gradient(rgba(156, 163, 175, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(156, 163, 175, 0.05) 1px, transparent 1px)
         `,
-        backgroundSize: '8px 8px',  
+        backgroundSize: '12px 12px',  
       }}
     />
   )

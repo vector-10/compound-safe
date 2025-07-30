@@ -191,7 +191,7 @@ const Page = () => {
                                     className="w-full h-auto"
                                     priority={true}  
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-blue-800/30 via-blue-800/15 to-transparent" />
+                                <div className="absolute bottom-0 left-0 right-0 h-[80%] bg-gradient-to-t from-blue-600/30 via-blue-600/15 to-transparent" />
                             </div>
                         </div>
                     </div>

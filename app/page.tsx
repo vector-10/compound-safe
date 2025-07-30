@@ -1,8 +1,11 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Page = () => {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
     return (
         <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors relative">
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none md:hidden" />
@@ -51,7 +54,10 @@ const Page = () => {
 
                         <div className="lg:hidden flex items-center space-x-3">
                             <ThemeToggle />
-                            <button className="text-gray-600 dark:text-gray-300">
+                            <button 
+                                onClick={() => setMobileMenuOpen(true)}
+                                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                            >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
@@ -61,6 +67,90 @@ const Page = () => {
                 </div>
             </header>
 
+            {/* Mobile Menu Overlay */}
+            {mobileMenuOpen && (
+                <div 
+                    className="fixed inset-0 bg-black/50 bg-opacity-50 z-40 lg:hidden"
+                    onClick={() => setMobileMenuOpen(false)}
+                />
+            )}
+
+            {/* Mobile Menu - Slide from Right */}
+            <div className={`fixed top-0 right-0 h-full w-70 bg-white dark:bg-gray-900 shadow-xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+                mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}>
+                {/* Menu Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+                    <div className="flex items-center space-x-2">
+                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <span className="text-white font-bold text-sm">CS</span>
+                        </div>
+                        <span className="text-lg font-semibold text-gray-900 dark:text-white">
+                            CompoundSafe
+                        </span>
+                    </div>
+                    <button 
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Menu Items */}
+                <div className="p-6">
+                    <nav className="space-y-4">
+                        <a 
+                            href="#" 
+                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Home
+                        </a>
+                        <a 
+                            href="#" 
+                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            About
+                        </a>
+                        <a 
+                            href="#" 
+                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Technology
+                        </a>
+                        <a 
+                            href="#" 
+                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Docs
+                        </a>
+                        <a 
+                            href="#" 
+                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-3"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Contact
+                        </a>
+                    </nav>
+
+                    {/* Mobile CTA Button */}
+                    <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
+                        <Link 
+                            href="/dashboard"
+                            className="w-full bg-white hover:bg-blue-700 text-black px-6 py-4 rounded-xs font-semibold text-lg transition-colors text-center block"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            GET STARTED
+                        </Link>
+                    </div>
+                </div>
+            </div>
 
             <main className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 relative z-20 mt-[5vh] sm:mt-0">
                 <div className="text-center max-w-3xl md:max-w-5xl mx-auto">
@@ -111,4 +201,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default Page; 

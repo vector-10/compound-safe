@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import Partners from '@/components/Partners';
 import Image from 'next/image'
 import Link from 'next/link';
 import { Shield } from 'lucide-react'
@@ -208,6 +209,7 @@ const Page = () => {
                             <span className="text-sm sm:text-base font-semibold">HYDRA</span>
                         </div>
                     </div>
+                    <Partners />
                 </div>
             </main>
         </div>

@@ -10,7 +10,7 @@ const SimpleLoader = () => {
     const handleLoad = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 1500); 
+      }, 3000); 
     };
 
     if (document.readyState === 'complete') {
@@ -20,7 +20,7 @@ const SimpleLoader = () => {
       
       const fallbackTimer = setTimeout(() => {
         setLoading(false);
-      }, 2500);
+      }, 7000);
 
       return () => {
         window.removeEventListener('load', handleLoad);

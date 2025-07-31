@@ -17,7 +17,6 @@ interface PartnerLogoProps {
 
 const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, hoverable = true }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { resolvedTheme } = useTheme();
 
   const logoMap: Record<string, string> = {
     'ETHEREUM': '/ethereum-eth-logo.svg',

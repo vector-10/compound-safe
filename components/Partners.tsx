@@ -43,7 +43,7 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
 
   return (
     <div
-      className={`flex items-center justify-center ${hoverable ? 'cursor-pointer' : ''}`}
+      className="partner-logo hidden md:flex items-center justify-center cursor-pointer"
       style={positionStyle}
       onMouseEnter={() => hoverable && setIsHovered(true)}
       onMouseLeave={() => hoverable && setIsHovered(false)}
@@ -74,11 +74,57 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
   );
 };
 
+const MobilePartnerLogo: React.FC<{name: string, size?: number}> = ({ name, size = 20 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const logoMap: Record<string, string> = {
+    'ETHEREUM': '/ethereum-eth-logo.svg',
+    'COMPOUND': '/compound-comp-logo.svg',
+    'CHAINLINK': '/chainlink-link-logo.svg',
+    'UNISWAP': '/uniswap-uni-logo.svg',
+    'POLYGON': '/polygon-matic-logo.svg',
+    'AAVE': '/aave-aave-logo.svg',
+    'BASE': '/base.svg',
+    'ARBITRUM': '/arbitrum-arb-logo.svg',
+  };
+
+  const hasLogo = logoMap[name];
+
+  return (
+    <div 
+      className="flex items-center space-x-1 py-1 cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <span 
+        className={`text-xs font-medium ${
+          isHovered 
+            ? 'text-blue-400 dark:text-blue-300' 
+            : 'text-gray-200 dark:text-gray-300'
+        } transition-colors whitespace-nowrap`}
+      >
+        {name}
+      </span>
+      {hasLogo && (
+        <div className="relative" style={{ width: size, height: size }}>
+          <Image
+            src={logoMap[name]}
+            alt={`${name} logo`}
+            width={size}
+            height={size}
+            className={`${isHovered ? 'filter-none' : 'opacity-80'} transition-opacity`}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Partners = () => {
   const [isClient, setIsClient] = useState(false);
   const orbRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLElement>(null);
-  const [orbSize, setOrbSize] = useState(585); 
+  const [orbSize, setOrbSize] = useState(585);
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -90,7 +136,17 @@ const Partners = () => {
     const handleResize = () => {
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        const newSize = Math.min(containerWidth * 0.54, 180); 
+        let newSize;
+        
+        // Responsive size calculation based on screen width
+        if (containerWidth < 640) { // Small mobile
+          newSize = Math.min(containerWidth * 0.4, 150); // 40% of container width up to 150px
+        } else if (containerWidth < 768) { // Larger mobile
+          newSize = Math.min(containerWidth * 0.45, 180); // 45% of container width up to 180px
+        } else {
+          newSize = Math.min(containerWidth * 0.54, 300); // Desktop - 54% of container width up to 300px
+        }
+        
         setOrbSize(newSize);
       }
     };
@@ -127,7 +183,7 @@ const Partners = () => {
       const row = Math.floor(index / 4); 
       const col = index % 4; 
       
-      const left = `calc(50% - 300px + ${col * 200}px)`;
+      const left = `calc(50% - 380px + ${col * 200}px)`;
       const top = `calc(50% - 50px + ${row * 80}px)`;
       
       return {
@@ -159,14 +215,38 @@ const Partners = () => {
       ref={containerRef as React.RefObject<HTMLDivElement>}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">
+            BACKED BY TRUSTED PARTNERS
+          </p>
+        </div>
+        
         <div className="relative h-[400px] flex items-center justify-center">
+          {/* Mobile vertical partners list */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 md:hidden">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-1">
+              {[
+                ['ETHEREUM', 'COMPOUND'],
+                ['CHAINLINK', 'UNISWAP'],
+                ['POLYGON', 'AAVE'],
+                ['BASE', 'ARBITRUM']
+              ].map((pair, pairIndex) => (
+                <React.Fragment key={pairIndex}>
+                  {pair.map(name => (
+                    <MobilePartnerLogo key={name} name={name} />
+                  ))}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+          
           <div 
             ref={orbRef}
             className="relative transition-all duration-700"
             style={{ width: orbSize, height: orbSize }}
           >
             <div
-               className="absolute rounded-full bg-gradient-to-b from-gray-950 via-gray-800 to-gray-700 dark:from-black dark:via-gray-800 dark:to-gray-600"
+              className="absolute rounded-full bg-gradient-to-b from-gray-950 via-gray-800 to-gray-700 dark:from-black dark:via-gray-800 dark:to-gray-600"
               style={{
                 width: '100%',
                 height: '100%',
@@ -179,23 +259,23 @@ const Partners = () => {
             />
             
             <div 
-                className="absolute rounded-full overflow-hidden"
+              className="absolute rounded-full overflow-hidden"
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <div 
+                className="absolute bg-gradient-to-t from-blue-500/50 via-blue-600/20 to-gray-700 dark:from-blue-500/40 dark:via-blue-600/30 dark:to-transparent"
                 style={{
                   width: '100%',
-                  height: '100%',
+                  height: '120%',
+                  top: '-10%',
+                  filter: 'blur(10px)',
+                  opacity: 0.6,
                 }}
-              >
-                <div 
-                  className="absolute bg-gradient-to-t from-blue-500/50 via-blue-600/20 to-gray-700 dark:from-blue-500/40 dark:via-blue-600/30 dark:to-transparent"
-                  style={{
-                    width: '100%',
-                    height: '120%',
-                    top: '-10%',
-                    filter: 'blur(10px)',
-                    opacity: 0.6,
-                  }}
-                />
-              </div>
+              />
+            </div>
             
             <div 
               className="absolute rounded-full bg-white"
@@ -210,6 +290,7 @@ const Partners = () => {
             />
           </div>
 
+          {/* Desktop partners with logos */}
           {positionedPartners.map((partner, index) => (
             <PartnerLogo
               key={index}

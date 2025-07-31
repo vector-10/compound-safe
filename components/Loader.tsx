@@ -10,7 +10,7 @@ const SimpleLoader = () => {
     const handleLoad = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 500); 
+      }, 1500); 
     };
 
     if (document.readyState === 'complete') {

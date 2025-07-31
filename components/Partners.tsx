@@ -39,8 +39,7 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
   };
 
   return (
-    <div
-      className={`flex items-center justify-center ${hoverable ? 'cursor-pointer' : ''}`}
+    <div className={`flex items-center justify-center ${hoverable ? 'cursor-pointer' : ''}`}
       style={positionStyle}
       onMouseEnter={() => hoverable && setIsHovered(true)}
       onMouseLeave={() => hoverable && setIsHovered(false)}

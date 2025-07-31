@@ -1,8 +1,8 @@
-"use client"
-import React, { useState, useEffect, useRef, CSSProperties   } from 'react';
+'use client';
+
+import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-
 
 interface PositionProps {
   left: string;
@@ -23,12 +23,15 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
     'ETHEREUM': '/ethereum-eth-logo.svg',
     'COMPOUND': '/compound-logo.svg',
     'CHAINLINK': '/chainlink-logo.svg',
-
+    'UNISWAP': '/uniswap-logo.svg',
+    'POLYGON': '/polygon-logo.svg',
+    'AAVE': '/aave-logo.svg',
+    'BASE': '/base-logo.svg',
+    'ARBITRUM': '/arbitrum-logo.svg',
   };
 
   const hasLogo = logoMap[name];
   
-
   const positionStyle: CSSProperties = {
     position: 'absolute',
     left: position.left,
@@ -39,7 +42,8 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
   };
 
   return (
-    <div className={`flex items-center justify-center ${hoverable ? 'cursor-pointer' : ''}`}
+    <div
+      className={`flex items-center justify-center ${hoverable ? 'cursor-pointer' : ''}`}
       style={positionStyle}
       onMouseEnter={() => hoverable && setIsHovered(true)}
       onMouseLeave={() => hoverable && setIsHovered(false)}
@@ -70,18 +74,25 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
 };
 
 const Partners = () => {
+  const [isClient, setIsClient] = useState(false);
   const orbRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLElement>(null);
-  const [orbSize, setOrbSize] = useState(650); 
+  // Reduced orb size by 10%
+  const [orbSize, setOrbSize] = useState(585); 
   const { theme } = useTheme();
+
   const isDark = theme === 'dark';
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        const newSize = Math.min(containerWidth * 0.6, 350); 
+        // Reduced by 10%
+        const newSize = Math.min(containerWidth * 0.54, 180); 
         setOrbSize(newSize);
       }
     };
@@ -109,35 +120,53 @@ const Partners = () => {
   }, []);
 
   const getPartnerPositions = () => {
-
-    const radius = orbSize * 0.8;
-    const partners = ['COMPOUND', 'ETHEREUM', 'CHAINLINK', 'CONVICTION', 'HYDRA'];
+    // Updated for 8 partners positioned on top of the orb
+    const partners = [
+      'ETHEREUM', 'COMPOUND', 'CHAINLINK', 'UNISWAP', 
+      'POLYGON', 'AAVE', 'SOLANA', 'ARBITRUM'
+    ];
     
+    // Create a grid layout for partners on top of the orb
     return partners.map((name, index) => {
-      const angle = (index / partners.length) * Math.PI * 2;
-
-      const x = Math.cos(angle) * radius * 1.1;
-      const y = Math.sin(angle) * radius;
+      const row = Math.floor(index / 4); // 2 rows
+      const col = index % 4; // 4 columns
+      
+      // Calculate position
+      const left = `calc(50% - 160px + ${col * 110}px)`;
+      const top = `calc(50% - 50px + ${row * 80}px)`;
       
       return {
         name,
         position: {
-          left: `calc(50% + ${x}px)`,
-          top: `calc(50% + ${y}px)`,
+          left,
+          top,
         } as PositionProps
       };
     });
   };
+
+
+  if (!isClient) {
+    return (
+      <section className="py-24 w-full relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative h-[400px] flex items-center justify-center">
+            {/* Empty placeholder for SSR */}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const positionedPartners = getPartnerPositions();
 
   return (
     <section 
       className="py-24 w-full relative overflow-hidden"
-      ref={containerRef}
+      ref={containerRef as React.RefObject<HTMLDivElement>}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
+      
         <div className="relative h-[400px] flex items-center justify-center">
           <div 
             ref={orbRef}
@@ -145,12 +174,12 @@ const Partners = () => {
             style={{ width: orbSize, height: orbSize }}
           >
             <div
-              className="absolute rounded-full bg-gradient-to-br from-gray-700 via-gray-900 to-black dark:from-gray-600 dark:to-black"
+               className="absolute rounded-full bg-gradient-to-b from-gray-950 via-gray-800 to-gray-700 dark:from-black dark:via-gray-800 dark:to-gray-600"
               style={{
                 width: '100%',
                 height: '100%',
                 filter: 'blur(2px)',
-                opacity: isDark ? 0.7 : 0.2,
+                opacity: isDark ? 0.85 : 0.3,
                 boxShadow: isDark 
                   ? '0 0 40px rgba(59, 130, 246, 0.3), inset 0 0 40px rgba(59, 130, 246, 0.1)'
                   : '0 0 40px rgba(59, 130, 246, 0.1), inset 0 0 40px rgba(59, 130, 246, 0.05)'
@@ -158,26 +187,34 @@ const Partners = () => {
             />
             
             <div 
-              className="absolute rounded-full bg-blue-500 dark:bg-blue-600 mix-blend-overlay"
-              style={{
-                width: '80%',
-                height: '80%',
-                top: '10%',
-                left: '10%',
-                filter: 'blur(30px)',
-                opacity: 0.1,
-              }}
-            />
+                className="absolute rounded-full overflow-hidden"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                }}
+              >
+                <div 
+                  className="absolute bg-gradient-to-t from-blue-500/50 via-blue-600/20 to-gray-700 dark:from-blue-500/40 dark:via-blue-600/30 dark:to-transparent"
+                  style={{
+                    width: '100%',
+                    height: '120%',
+                    top: '-10%',
+                    filter: 'blur(10px)',
+                    opacity: 0.6,
+                  }}
+                />
+              </div>
             
+
             <div 
               className="absolute rounded-full bg-white"
               style={{
-                width: '30%',
-                height: '30%',
-                top: '15%',
-                left: '25%',
-                filter: 'blur(25px)',
-                opacity: 0.08,
+                width: '40%',
+                height: '40%',
+                bottom: '15%',
+                left: '30%',
+                filter: 'blur(30px)',
+                opacity: 0.15,
               }}
             />
           </div>

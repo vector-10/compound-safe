@@ -198,16 +198,9 @@ const Page = () => {
                     </div>
                
                     <div className="text-center">
-                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wide">
+                        <p className="text-xs sm:text-sm md:text-lg font-bold text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wide">
                             BACKED BY TRUSTED PARTNERS
-                        </p>
-                        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 lg:gap-16 text-gray-400 dark:text-gray-500 lg:text-">
-                            <span className="text-sm sm:text-base font-semibold">COMPOUND</span>
-                            <span className="text-sm sm:text-base font-semibold">ETHEREUM</span>
-                            <span className="text-sm sm:text-base font-semibold">CHAINLINK</span>
-                            <span className="text-sm sm:text-base font-semibold">CONVICTION</span>
-                            <span className="text-sm sm:text-base font-semibold">HYDRA</span>
-                        </div>
+                        </p>                  
                     </div>
                     <Partners />
                 </div>

@@ -21,13 +21,13 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
 
   const logoMap: Record<string, string> = {
     'ETHEREUM': '/ethereum-eth-logo.svg',
-    'COMPOUND': '/compound-logo.svg',
-    'CHAINLINK': '/chainlink-logo.svg',
-    'UNISWAP': '/uniswap-logo.svg',
-    'POLYGON': '/polygon-logo.svg',
-    'AAVE': '/aave-logo.svg',
-    'BASE': '/base-logo.svg',
-    'ARBITRUM': '/arbitrum-logo.svg',
+    'COMPOUND': '/compound-comp-logo.svg',
+    'CHAINLINK': '/chainlink-link-logo.svg',
+    'UNISWAP': '/uniswap-uni-logo.svg',
+    'POLYGON': '/polygon-matic-logo.svg',
+    'AAVE': '/aave-aave-logo.svg',
+    'BASE': '/base.svg',
+    'ARBITRUM': '/arbitrum-arb-logo.svg',
   };
 
   const hasLogo = logoMap[name];
@@ -37,7 +37,7 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
     left: position.left,
     top: position.top,
     transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
-    transform: isHovered ? 'scale(1.3)' : 'scale(1)',
+    transform: isHovered ? 'scale(1.15)' : 'scale(1)',
     zIndex: isHovered ? 10 : 1,
   };
 
@@ -48,27 +48,28 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
       onMouseEnter={() => hoverable && setIsHovered(true)}
       onMouseLeave={() => hoverable && setIsHovered(false)}
     >
-      {hasLogo ? (
-        <div className="relative" style={{ width: size, height: size }}>
-          <Image
-            src={logoMap[name]}
-            alt={`${name} logo`}
-            width={size}
-            height={size}
-            className={`${isHovered ? 'filter-none' : 'opacity-70'} transition-opacity`}
-          />
-        </div>
-      ) : (
+      <div className="flex items-center space-x-2 backdrop-blur-sm px-3 py-2 rounded-md">
         <span 
-          className={`text-sm font-semibold ${
+          className={`text-sm md:text-xl font-bold ${
             isHovered 
-              ? 'text-blue-500 dark:text-blue-400' 
-              : 'text-gray-600 dark:text-gray-400'
+              ? 'text-blue-400 dark:text-blue-300' 
+              : 'text-gray-200 dark:text-gray-300'
           } transition-colors whitespace-nowrap`}
         >
           {name}
         </span>
-      )}
+        {hasLogo && (
+          <div className="relative" style={{ width: size, height: size }}>
+            <Image
+              src={logoMap[name]}
+              alt={`${name} logo`}
+              width={size}
+              height={size}
+              className={`${isHovered ? 'filter-none' : 'opacity-80'} transition-opacity`}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -77,10 +78,8 @@ const Partners = () => {
   const [isClient, setIsClient] = useState(false);
   const orbRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLElement>(null);
-  // Reduced orb size by 10%
   const [orbSize, setOrbSize] = useState(585); 
   const { theme } = useTheme();
-
   const isDark = theme === 'dark';
 
   useEffect(() => {
@@ -91,7 +90,6 @@ const Partners = () => {
     const handleResize = () => {
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        // Reduced by 10%
         const newSize = Math.min(containerWidth * 0.54, 180); 
         setOrbSize(newSize);
       }
@@ -120,19 +118,16 @@ const Partners = () => {
   }, []);
 
   const getPartnerPositions = () => {
-    // Updated for 8 partners positioned on top of the orb
     const partners = [
       'ETHEREUM', 'COMPOUND', 'CHAINLINK', 'UNISWAP', 
-      'POLYGON', 'AAVE', 'SOLANA', 'ARBITRUM'
+      'POLYGON', 'AAVE', 'BASE', 'ARBITRUM'
     ];
     
-    // Create a grid layout for partners on top of the orb
     return partners.map((name, index) => {
-      const row = Math.floor(index / 4); // 2 rows
-      const col = index % 4; // 4 columns
+      const row = Math.floor(index / 4); 
+      const col = index % 4; 
       
-      // Calculate position
-      const left = `calc(50% - 160px + ${col * 110}px)`;
+      const left = `calc(50% - 300px + ${col * 200}px)`;
       const top = `calc(50% - 50px + ${row * 80}px)`;
       
       return {
@@ -145,13 +140,11 @@ const Partners = () => {
     });
   };
 
-
   if (!isClient) {
     return (
       <section className="py-24 w-full relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative h-[400px] flex items-center justify-center">
-            {/* Empty placeholder for SSR */}
           </div>
         </div>
       </section>
@@ -166,7 +159,6 @@ const Partners = () => {
       ref={containerRef as React.RefObject<HTMLDivElement>}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
         <div className="relative h-[400px] flex items-center justify-center">
           <div 
             ref={orbRef}
@@ -205,7 +197,6 @@ const Partners = () => {
                 />
               </div>
             
-
             <div 
               className="absolute rounded-full bg-white"
               style={{

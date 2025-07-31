@@ -197,8 +197,8 @@ const Page = () => {
                         </div>
                     </div>
                
-                    <div className="text-center">
-                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wide">
+                    <div className="text-center md:hidden">
+                        <p className="text-xs sm:text-sm md:text-xl  text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wide">
                             BACKED BY TRUSTED PARTNERS
                         </p>
                         <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 lg:gap-16 text-gray-400 dark:text-gray-500 lg:text-">

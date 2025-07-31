@@ -201,7 +201,7 @@ const Page = () => {
                         <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wide">
                             BACKED BY TRUSTED PARTNERS
                         </p>
-                        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 text-gray-400 dark:text-gray-500">
+                        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 lg:gap-16 text-gray-400 dark:text-gray-500 lg:text-">
                             <span className="text-sm sm:text-base font-semibold">COMPOUND</span>
                             <span className="text-sm sm:text-base font-semibold">ETHEREUM</span>
                             <span className="text-sm sm:text-base font-semibold">CHAINLINK</span>

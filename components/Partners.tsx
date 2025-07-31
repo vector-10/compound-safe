@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect, useRef, CSSProperties   } from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
@@ -137,11 +138,6 @@ const Partners = () => {
       ref={containerRef}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">
-            BACKED BY TRUSTED PARTNERS
-          </p>
-        </div>
 
         <div className="relative h-[400px] flex items-center justify-center">
           <div 

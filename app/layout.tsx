@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import Loader from "@/components/Loader";
 import { CursorEffects } from "@/components/CursorEffects";
 import { GridBackground } from "@/components/GridBackground";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Loader />
           <GridBackground />
           <CursorEffects />
           {children}

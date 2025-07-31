@@ -22,3 +22,54 @@
   .cursor-hover {
     transition: all 0.2s ease-out;
   }
+
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111827; 
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+html.dark .page-loader {
+  background-color: #111827; 
+}
+
+.page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  width: 25px;
+  aspect-ratio: 1;
+  box-shadow: 0 0 0 3px inset #fff; 
+  animation: l5 1.5s infinite;
+}
+
+html.dark .loader:before,
+html.dark .loader:after {
+  box-shadow: 0 0 0 3px inset #fff;
+}
+
+.loader:after {
+  --s: -1;
+}
+
+@keyframes l5 {
+  0%   {transform: scaleX(var(--s,1)) translate(0) scale(1)}
+  33%  {transform: scaleX(var(--s,1)) translate(calc(50% + 2.5px)) scale(1)}
+  66%  {transform: scaleX(var(--s,1)) translate(calc(50% + 2.5px)) scale(2)}
+  100% {transform: scaleX(var(--s,1)) translate(0) scale(1)}
+}

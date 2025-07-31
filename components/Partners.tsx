@@ -17,8 +17,8 @@ interface PartnerLogoProps {
 
 const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, hoverable = true }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { theme } = useTheme();
-  //const isDark = theme === 'dark';
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
 
 
   const logoMap: Record<string, string> = {
@@ -77,6 +77,7 @@ const Partners = () => {
   const containerRef = useRef<HTMLElement>(null);
   const [orbSize, setOrbSize] = useState(650); 
   const { theme } = useTheme();
+   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isDark = theme === 'dark';
 
 

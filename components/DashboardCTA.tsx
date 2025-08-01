@@ -14,7 +14,7 @@ const DashboardCTA: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 px-6 md:px-8 lg:px-12 py-8 lg:py-16">            
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-mono font-bold text-white leading-tight mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl font-mono font-bold text-white leading-tight mb-6">
               JOIN COMPOUNDSAFE NOW<br />
               AND REVOLUTIONIZE YOUR<br />
               LIQUIDITY MANAGEMENT<br />

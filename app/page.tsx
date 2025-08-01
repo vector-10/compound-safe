@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Partners from '@/components/Partners';
 import Image from 'next/image'
+import FeatureScroll from "@/components/FeatureScroll";
 import Benefits from "@/components/Benefits";
 import Link from 'next/link';
 import { Shield } from 'lucide-react'
@@ -205,6 +206,8 @@ const Page = () => {
                 <div className="w-full px-4 md:px-12 lg:px-24 xl:px-32 py-12">
                     <Benefits />
                 </div>
+
+                <FeatureScroll />
             </main>
         </div>
     );

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
-import { Github, Twitter, Instagram } from 'lucide-react';
+import { Github, Twitter, Instagram, Shield } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -11,15 +11,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-10 md:mb-0 md:w-1/2 lg:w-2/5 pr-8">
-            <div className="flex items-center mb-6">
-              <div className="mr-2 text-indigo-400">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="currentColor"/>
-                </svg>
-              </div>
-              <span className="text-white text-lg font-semibold">CompoundSafe</span>
-            </div>
+            
+          <div className="flex items-center space-x-1 lg:space-x-2">
+                        <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
+                            CompoundSafe
+                        </span>
+                        <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
+                    </div>
             
             <p className="text-sm leading-relaxed mb-8 text-gray-400">
               We're dedicated to reshaping the landscape of liquidity management, maximize yield opportunities, and participate in the thriving DeFi ecosystem.

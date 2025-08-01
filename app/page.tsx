@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import Partners from '@/components/Partners';
 import Image from 'next/image'
 import FeatureScroll from "@/components/FeatureScroll";
+import FAQItem from "@/components/FAQItem";
+import DashboardCTA from "@/components/DashboardCTA";
+import Footer from "@/components/Footer";
 import Benefits from "@/components/Benefits";
 import Link from 'next/link';
 import { Shield } from 'lucide-react'
@@ -208,6 +211,9 @@ const Page = () => {
                 </div>
 
                 <FeatureScroll />
+                <FAQItem />
+                <DashboardCTA />
+                <Footer />
             </main>
         </div>
     );

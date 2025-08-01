@@ -71,12 +71,12 @@ const FeatureScroll = () => {
     ];
 
     return (
-        <div className="w-full py-12 overflow-hidden">
+        <div className="w-full py-24 overflow-hidden text-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 ">
                     Key <span className="text-blue-500">Features</span>
                 </h2>
-                <p className="text-gray-400 max-w-2xl text-center">
+                <p className="text-gray-400">
                     CompoundSafe gives you everything you need to maximize your DeFi yields while keeping your positions secure.
                 </p>
             </div>

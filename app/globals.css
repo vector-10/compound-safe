@@ -1,42 +1,55 @@
 @import "tailwindcss";
 
-
 @media (min-width: 768px) and (hover: hover) and (pointer: fine) {
     * {
       cursor: none !important;
     }
-  }
-  
-  @media (max-width: 767px), (hover: none), (pointer: coarse) {
+}
+
+@media (max-width: 767px), (hover: none), (pointer: coarse) {
     * {
       cursor: auto !important;
     }
-  }
-  
+}
 
-  .bg-gradient-radial {
+.bg-gradient-radial {
     background: radial-gradient(circle, var(--tw-gradient-stops));
-  }
-  
+}
 
-  .cursor-hover {
+.cursor-hover {
     transition: all 0.2s ease-out;
-  }
+}
 
+body.loading-active {
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.loading-active > div:not(:has(.page-loader)) {
+  visibility: hidden !important;
+}
 
 .page-loader {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #111827; 
+  background-color: #111827;
   transition: opacity 0.5s, visibility 0.5s;
+  transform: translate3d(0, 0, 0);
 }
 
 html.dark .page-loader {
-  background-color: #111827; 
+  background-color: #111827;
 }
 
 .page-loader.loaded {
@@ -54,7 +67,7 @@ html.dark .page-loader {
   content: "";
   width: 25px;
   aspect-ratio: 1;
-  box-shadow: 0 0 0 3px inset #fff; 
+  box-shadow: 0 0 0 3px inset #fff;
   animation: l5 1.5s infinite;
 }
 

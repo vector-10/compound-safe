@@ -152,54 +152,57 @@ const Page = () => {
                 </div>
             </div>
 
-            <main className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 relative z-20 mt-[5vh] sm:mt-0">
-                <div className="text-center max-w-3xl md:max-w-5xl mx-auto">
-                  
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-10 sm:mb-8 leading-tight">
-                        LEND WITH CONFIDENCE,
-                        <br />
-                        <span className="text-blue-600">BORROW WITH PROTECTION,</span>
-                        <br />
-                        STAY LIQUID
-                    </h1>
+            <main className="flex flex-col items-center justify-center relative z-20 mt-[5vh] sm:mt-0">
+                {/* Hero section with constrained width */}
+                <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 w-full">
+                    <div className="text-center max-w-3xl md:max-w-5xl mx-auto">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-10 sm:mb-8 leading-tight">
+                            LEND WITH CONFIDENCE,
+                            <br />
+                            <span className="text-blue-600">BORROW WITH PROTECTION,</span>
+                            <br />
+                            STAY LIQUID
+                        </h1>
 
-                
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
-                        In DeFi, the smartest way to play is safe, CompoundSafe helps you monitor your positions, 
-                        get instant alerts, and keep earning while staying safe from unexpected liquidation.
-                    </p>
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
+                            In DeFi, the smartest way to play is safe, CompoundSafe helps you monitor your positions, 
+                            get instant alerts, and keep earning while staying safe from unexpected liquidation.
+                        </p>
 
-             
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 py-[3rem]">
-                        <Link 
-                            href="/dashboard"
-                            className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
-                        >
-                            LAUNCH COMPOUND SAFE
-                        </Link>
-                        <button className="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
-                            SEE HOW IT WORKS
-                        </button>
-                    </div>
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 py-[3rem]">
+                            <Link 
+                                href="/dashboard"
+                                className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
+                            >
+                                LAUNCH COMPOUND SAFE
+                            </Link>
+                            <button className="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
+                                SEE HOW IT WORKS
+                            </button>
+                        </div>
 
-                    <div className="relative mb-16 sm:mb-20">
-                        <div className="relative max-w-5xl mx-auto px-4 sm:px-0">
-                            <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                                <Image 
-                                    src="/dashimage.png"
-                                    alt="CompoundSafe Dashboard Preview"
-                                    width={1097} 
-                                    height={699}  
-                                    className="w-full h-auto"
-                                    priority={true}  
-                                />
-                                <div className="absolute bottom-0 left-0 right-0 h-[80%] bg-gradient-to-t from-blue-600/30 via-blue-600/15 to-transparent" />
+                        <div className="relative mb-16 sm:mb-20">
+                            <div className="relative max-w-5xl mx-auto px-4 sm:px-0">
+                                <div className="relative rounded-xl overflow-hidden shadow-2xl">
+                                    <Image 
+                                        src="/dashimage.png"
+                                        alt="CompoundSafe Dashboard Preview"
+                                        width={1097} 
+                                        height={699}  
+                                        className="w-full h-auto"
+                                        priority={true}  
+                                    />
+                                    <div className="absolute bottom-0 left-0 right-0 h-[80%] bg-gradient-to-t from-blue-600/30 via-blue-600/15 to-transparent" />
+                                </div>
                             </div>
                         </div>
+
+                        <Partners />
                     </div>
-               
-                   
-                    <Partners />
+                </div>
+
+                {/* Benefits section with wider container */}
+                <div className="w-full px-4 md:px-12 lg:px-24 xl:px-32 py-12">
                     <Benefits />
                 </div>
             </main>

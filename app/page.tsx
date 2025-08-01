@@ -8,7 +8,7 @@ import DashboardCTA from "@/components/DashboardCTA";
 import Footer from "@/components/Footer";
 import Benefits from "@/components/Benefits";
 import Link from 'next/link';
-import { Shield } from 'lucide-react'
+import { FaShieldAlt } from "react-icons/fa";
 import { ThemeToggle } from '@/components/ThemeToggle'; 
 
 const Page = () => {
@@ -26,7 +26,7 @@ const Page = () => {
                         <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
                             CompoundSafe
                         </span>
-                        <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
+                        <FaShieldAlt className="w-5 h-5 lg:w-8 lg:h-8 text-blue-600" />
                     </div>
 
                         <div className="hidden lg:flex items-center space-x-8">
@@ -91,7 +91,7 @@ const Page = () => {
                             <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
                                 CompoundSafe
                             </span>
-                            <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
+                            <FaShieldAlt className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                         </div>
                     <button 
                         onClick={() => setMobileMenuOpen(false)}

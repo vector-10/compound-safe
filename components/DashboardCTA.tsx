@@ -12,16 +12,7 @@ const DashboardCTA: React.FC = () => {
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2 px-6 md:px-8 lg:px-12 py-8 lg:py-16">
-            <div className="mb-6">
-              <svg width="58" height="36" viewBox="0 0 58 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
-                <path d="M41.2 0C36.2 0 32.1 4.1 32.1 9.1C32.1 14.1 36.2 18.2 41.2 18.2C46.2 18.2 50.3 14.1 50.3 9.1C50.3 4.1 46.2 0 41.2 0Z" fill="white"/>
-                <path d="M9.1 18.3C4.1 18.3 0 22.4 0 27.4C0 32.4 4.1 36.5 9.1 36.5C14.1 36.5 18.2 32.4 18.2 27.4C18.2 22.4 14.1 18.3 9.1 18.3Z" fill="white"/>
-                <path d="M25.2 0C22.7 0 20.3 1 18.6 2.7C16.9 4.4 15.9 6.8 15.9 9.3C15.9 11.8 16.9 14.2 18.6 15.9C20.3 17.6 22.7 18.6 25.2 18.6C27.7 18.6 30.1 17.6 31.8 15.9C33.5 14.2 34.5 11.8 34.5 9.3C34.5 6.8 33.5 4.4 31.8 2.7C30.1 1 27.7 0 25.2 0Z" fill="white"/>
-                <path d="M57.3 18.3C54.8 18.3 52.4 19.3 50.7 21C49 22.7 48 25.1 48 27.6C48 30.1 49 32.5 50.7 34.2C52.4 35.9 54.8 36.9 57.3 36.9C59.8 36.9 62.2 35.9 63.9 34.2C65.6 32.5 66.6 30.1 66.6 27.6C66.6 25.1 65.6 22.7 63.9 21C62.2 19.3 59.8 18.3 57.3 18.3Z" fill="white"/>
-                <path d="M25.1 20.4C20.1 20.4 16 24.5 16 29.5C16 34.5 20.1 38.6 25.1 38.6C30.1 38.6 34.2 34.5 34.2 29.5C34.2 24.5 30.1 20.4 25.1 20.4Z" fill="white"/>
-              </svg>
-            </div>
+          <div className="lg:w-1/2 px-6 md:px-8 lg:px-12 py-8 lg:py-16">            
             
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-mono font-bold text-white leading-tight mb-6">
               JOIN COMPOUNDSAFE NOW<br />

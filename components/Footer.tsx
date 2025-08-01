@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
-import { Shield } from 'lucide-react';
+import { FaShieldAlt } from "react-icons/fa";
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa6";
 
@@ -18,7 +18,7 @@ const Footer = () => {
                         <span className="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white">
                             CompoundSafe
                         </span>
-                        <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
+                        <FaShieldAlt className="w-5 h-5 lg:w-8 lg:h-8 text-blue-600" />
                     </div>
             
             <p className="text-sm lg:text-md leading-relaxed mb-8 text-gray-400">
@@ -44,27 +44,27 @@ const Footer = () => {
               <h3 className="text-white text-sm font-medium mb-4">Company</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/web-app" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     Web App
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     Terms of Use
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
@@ -80,17 +80,17 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <Link href="/docs" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     Documentation
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/brand" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href="" className="text-gray-400 hover:text-white text-sm transition-colors">
                     Brand Assets
                   </Link>
                 </li>
@@ -99,7 +99,6 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-800/30">
           <p className="text-gray-500 text-sm text-center">
             © {new Date().getFullYear()} CompoundSafe. All rights reserved.

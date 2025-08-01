@@ -1,17 +1,16 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
+
 
 const SimpleLoader = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.body.classList.add('loading-active');
-    
     const handleLoad = () => {
       setTimeout(() => {
         setLoading(false);
-        document.body.classList.remove('loading-active');
-      }, 3000);
+      }, 3000); 
     };
 
     if (document.readyState === 'complete') {
@@ -21,7 +20,6 @@ const SimpleLoader = () => {
       
       const fallbackTimer = setTimeout(() => {
         setLoading(false);
-        document.body.classList.remove('loading-active');
       }, 7000);
 
       return () => {

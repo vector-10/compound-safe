@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import Partners from '@/components/Partners';
 import Image from 'next/image'
+import Benefits from "@/components/Benefits";
 import Link from 'next/link';
 import { Shield } from 'lucide-react'
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { ThemeToggle } from '@/components/ThemeToggle'; 
 
 const Page = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -199,6 +200,7 @@ const Page = () => {
                
                    
                     <Partners />
+                    <Benefits />
                 </div>
             </main>
         </div>

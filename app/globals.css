@@ -45,7 +45,7 @@ body.loading-active > div:not(:has(.page-loader)) {
   justify-content: center;
   background-color: #111827;
   transition: opacity 0.5s, visibility 0.5s;
-  transform: translate3d(0, 0, 0);
+  isolation: isolate;
 }
 
 html.dark .page-loader {

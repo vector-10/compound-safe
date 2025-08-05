@@ -52,7 +52,7 @@ const Page = () => {
                             
                             <Link 
                                 href="/dashboard" 
-                                className="bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 py-3 rounded-xs text-sm font-medium transition-colors"
+                                className="bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 py-3 rounded-md text-sm font-medium transition-colors"
                             >
                                 GET STARTED
                             </Link>
@@ -147,7 +147,7 @@ const Page = () => {
                     <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
                         <Link 
                             href="/dashboard"
-                            className="w-full bg-white hover:bg-blue-700 text-black px-6 py-4 rounded-xs font-semibold text-lg transition-colors text-center block"
+                            className="w-full bg-white hover:bg-blue-700 text-black px-6 py-4 rounded-md font-semibold text-lg transition-colors text-center block"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             GET STARTED
@@ -169,18 +169,17 @@ const Page = () => {
                         </h1>
 
                         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
-                            In DeFi, the smartest way to play is safe, CompoundSafe helps you monitor your positions, 
-                            get instant alerts, and keep earning while staying safe from unexpected liquidation.
+                        In DeFi, the smartest move is staying safe. CompoundSafe helps you monitor your positions, get instant alerts, and protect your assets from unexpected liquidation — while you keep earning.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 py-[3rem]">
                             <Link 
                                 href="/dashboard"
-                                className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
+                                className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
                             >
                                 LAUNCH COMPOUND SAFE
                             </Link>
-                            <button className="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-xs font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
+                            <button className="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
                                 SEE HOW IT WORKS
                             </button>
                         </div>

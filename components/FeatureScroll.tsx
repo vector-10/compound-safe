@@ -86,7 +86,7 @@ const FeatureScroll = () => {
                 <Slider {...settings}>
                     {featureCards.map((card, index) => (
                         <div key={index} className="px-2">
-                            <div className="bg-gray-800/70 dark:bg-gray-800/50 border border-gray-700/30 rounded-xs p-6 relative overflow-hidden h-full">
+                            <div className="bg-gray-800/70 dark:bg-gray-800/50 border border-gray-700/30 rounded-md p-6 relative overflow-hidden h-full">
                                 <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-indigo-900/10 to-purple-900/10 pointer-events-none"></div>
                                 <div className="mb-4">
                                     {card.icon}

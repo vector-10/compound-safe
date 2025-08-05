@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const DashboardCTA: React.FC = () => {
   return (
-    <div className="w-full py-16  relative overflow-hidden">
+    <div className="w-full py-16 md:py-[10rem]  relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 h-full">
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl bg-blue-950 rounded-bl-3xl transform scale-110"></div>
       </div>
@@ -23,7 +23,7 @@ const DashboardCTA: React.FC = () => {
             
             <div className="mt-8">
               <Link href="/dashboard">
-                <button className="bg-gray-800 hover:bg-gray-700 text-gray-100 py-3 px-8 rounded-xs font-medium transition-colors">
+                <button className="bg-gray-800 hover:bg-gray-700 text-gray-100 py-3 px-8 rounded-md font-medium transition-colors">
                   LAUNCH APP
                 </button>
               </Link>

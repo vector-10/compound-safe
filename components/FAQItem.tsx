@@ -11,7 +11,7 @@ interface FAQItemProps {
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, toggleOpen }) => {
   return (
-    <div className="border border-gray-800/50 bg-gray-800/20 rounded-xs overflow-hidden mb-6">
+    <div className="border border-gray-800/50 bg-gray-800/20 rounded-md overflow-hidden mb-6">
       <div 
         className="flex items-center justify-between p-4 cursor-pointer"
         onClick={toggleOpen}

@@ -158,7 +158,7 @@ const Benefits = () => {
                 </div>
                 
                 {/* Bottom card - Top Tier Risk Mitigation */}
-                <div className="bg-white/5 dark:bg-white/5 rounded-xs border border-gray-800 p-6 md:p-8 w-full">
+                <div className="bg-white/5 dark:bg-white/5 rounded-md border border-gray-800 p-6 md:p-8 w-full">
                     <div className="flex flex-col md:flex-row">
                         <div className="md:w-1/2 mb-6 md:mb-0 md:pr-6">
                             <h3 className="text-xl md:text-3xl font-mono font-bold text-white mb-3">

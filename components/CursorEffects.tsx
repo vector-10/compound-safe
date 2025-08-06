@@ -1,14 +1,20 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export function CursorEffects() {
+  const pathname = usePathname();
   const cursorRef = useRef<HTMLDivElement>(null)
   const cursorDotRef = useRef<HTMLDivElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
   const [isMobile, setIsMobile] = useState(false)
 
+  const shouldDisable = pathname?.startsWith('/dashboard')
+  
+
   useEffect(() => {
+    if (shouldDisable) return;
 
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window)

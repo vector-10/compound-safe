@@ -12,10 +12,10 @@ export function CursorEffects() {
 
   const shouldDisable = pathname?.startsWith('/dashboard')
   
+  // Debug logging
+  console.log('CursorEffects:', { pathname, shouldDisable, isMobile })
 
   useEffect(() => {
-    if (shouldDisable) return;
-
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window)
     }
@@ -23,11 +23,28 @@ export function CursorEffects() {
     checkMobile()
     window.addEventListener('resize', checkMobile)
 
+    if (shouldDisable) {
+      document.body.setAttribute('data-dashboard', 'true')
+    } else {
+      document.body.removeAttribute('data-dashboard')
+    }
+
+    // Only hide default cursor when effects are active and working
+    if (shouldDisable) {
+      return () => {
+        window.removeEventListener('resize', checkMobile)
+      }
+    }
+
     const cursor = cursorRef.current
     const cursorDot = cursorDotRef.current
     const glow = glowRef.current
     
-    if (!cursor || !cursorDot || !glow || isMobile) return
+    if (!cursor || !cursorDot || !glow || isMobile) {
+      return () => {
+        window.removeEventListener('resize', checkMobile)
+      }
+    }
 
     const moveCursor = (e: MouseEvent) => {
       const { clientX: x, clientY: y } = e
@@ -71,14 +88,16 @@ export function CursorEffects() {
     return () => {
       document.removeEventListener('mousemove', moveCursor)
       window.removeEventListener('resize', checkMobile)
+      document.body.removeAttribute('data-dashboard')
       interactiveElements.forEach(el => {
         el.removeEventListener('mouseenter', handleMouseEnter)
         el.removeEventListener('mouseleave', handleMouseLeave)
       })
     }
-  }, [isMobile])
+  }, [shouldDisable, isMobile])
 
-  if (isMobile) {
+  // Don't render anything on dashboard or mobile
+  if (shouldDisable || isMobile) {
     return null
   }
 
@@ -96,7 +115,7 @@ export function CursorEffects() {
 
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-6 h-6  rounded-full pointer-events-none z-50 transition-all duration-150 ease-out"
+        className="fixed top-0 left-0 w-6 h-6 rounded-full pointer-events-none z-50 transition-all duration-150 ease-out"
         style={{
             transform: 'translate(-50%, -50%)',
             backgroundColor: 'rgba(59, 130, 246, 0.5)',
@@ -104,7 +123,7 @@ export function CursorEffects() {
             boxShadow: '0 0 20px rgba(59, 130, 246, 0.6)',
         }}
         />
-      
+        
       <div
         ref={cursorDotRef}
         className="fixed top-0 left-0 w-2 h-2 bg-blue-400/30 rounded-full pointer-events-none z-40 transition-all duration-300 ease-out"

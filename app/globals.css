@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 @media (min-width: 768px) and (hover: hover) and (pointer: fine) {
-    * {
+    body:not([data-dashboard]) * {
       cursor: none !important;
+    }
+    
+    body[data-dashboard] * {
+      cursor: revert !important;
     }
 }
 

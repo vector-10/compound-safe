@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaHome, FaBell, FaShieldAlt } from "react-icons/fa";
-import { IoPieChart, IoSettings, IoBarChart, IoAlertCircle } from "react-icons/io5";
+import { IoPieChart, IoSettings, IoAlertCircle } from "react-icons/io5";
 
 
 export default function DashboardSidebar() {
@@ -31,11 +31,6 @@ export default function DashboardSidebar() {
       icon: FaBell,
     },
     {
-      name: 'Analytics',
-      href: '/dashboard/analytics',
-      icon: IoBarChart,
-    },
-    {
       name: 'Protection',
       href: '/dashboard/protection',
       icon: FaShieldAlt,
@@ -50,9 +45,6 @@ export default function DashboardSidebar() {
   return (
     <aside className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 h-full">
       <div className="p-6">
-        <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
-          Dashboard
-        </h2>
         
         <nav className="space-y-2">
           {navItems.map((item) => {

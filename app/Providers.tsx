@@ -14,7 +14,6 @@ const config = getDefaultConfig({
   ssr: true,
 });
 
-const { chains } = config;
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());

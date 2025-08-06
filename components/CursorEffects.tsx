@@ -12,7 +12,6 @@ export function CursorEffects() {
 
   const shouldDisable = pathname?.startsWith('/dashboard')
   
-  // Debug logging
   console.log('CursorEffects:', { pathname, shouldDisable, isMobile })
 
   useEffect(() => {

@@ -31,11 +31,6 @@ export default function DashboardSidebar() {
       icon: FaBell,
     },
     {
-      name: 'Protection',
-      href: '/dashboard/protection',
-      icon: FaShieldAlt,
-    },
-    {
       name: 'Settings',
       href: '/dashboard/settings',
       icon: IoSettings,

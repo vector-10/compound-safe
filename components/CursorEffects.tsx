@@ -12,8 +12,6 @@ export function CursorEffects() {
 
   const shouldDisable = pathname?.startsWith('/dashboard')
   
-  console.log('CursorEffects:', { pathname, shouldDisable, isMobile })
-
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window)

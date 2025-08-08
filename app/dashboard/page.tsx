@@ -5,12 +5,7 @@ import { useCompoundPosition } from '@/lib/compound';
 
 export default function Dashboard() {
   const { address, isConnected } = useAccount();
-  const position = useCompoundPosition("0x05FC2caB02916ad7c7B243550D90186bE7BcB4eA");
-
-  console.log('🔌 Wallet Debug:');
-  console.log('Address from useAccount:', address);
-  console.log('Is connected:', isConnected);
-
+  const position = useCompoundPosition(address);
 
   return (
     <DashboardLayout>
@@ -27,7 +22,7 @@ export default function Dashboard() {
           </div>
         ) : null}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               Total Supplied
@@ -43,6 +38,15 @@ export default function Dashboard() {
             </h3>
             <p className="text-2xl font-bold text-red-600 dark:text-red-400">
               ${position.loading ? '...' : position.borrowedUSDCFormatted}
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              Collateral Deposit
+            </h3>
+            <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+              ${position.collateralValueUSD.toLocaleString()}
             </p>
           </div>
           

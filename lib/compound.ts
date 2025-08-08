@@ -214,9 +214,20 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
     query: { enabled: !!address },
   })
 
-  const { data: collateralBalance, isLoading: collateralLoading } = useReadContract({
+  const { data: collateralBalance, isLoading: collateralLoading, error: collateralError } = useReadContract({
     address: COMPOUND_ADDRESSES.COMET_USDC,
-    abi: ['function collateralBalanceOf(address account, address asset) external view returns (uint128)'],
+    abi: [
+      {
+        name: 'collateralBalanceOf',
+        type: 'function', 
+        inputs: [
+          { type: 'address', name: 'account' },
+          { type: 'address', name: 'asset' }
+        ],
+        outputs: [{ type: 'uint128' }], 
+        stateMutability: 'view'
+      }
+    ],
     functionName: 'collateralBalanceOf',
     args: [address!, COMPOUND_ADDRESSES.WETH],
     query: { enabled: !!address },
@@ -238,7 +249,11 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
   console.log('Supplied balance:', suppliedBalance, 'Loading:', suppliedLoading);
   console.log('Collateral balance:', collateralBalance, 'Loading:', collateralLoading);
   console.log('Utilization:', utilization, 'Loading:', utilizationLoading);
-  console.log('Raw collateral value:', collateralBalance);
+  console.log('Collateral Debug:');
+  console.log('- Balance:', collateralBalance);
+  console.log('- Loading:', collateralLoading);
+  console.log('- Error:', collateralError); 
+  console.log('- WETH Address used:', COMPOUND_ADDRESSES.WETH);
 
 
   const borrowedResult = borrowBalance as bigint | undefined

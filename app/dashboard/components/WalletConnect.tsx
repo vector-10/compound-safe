@@ -3,12 +3,6 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
 
-declare global {
-  interface Window {
-    ethereum?: any;
-  }
-}
-
 interface WalletConnectProps {
   onAddressChange: (address: string) => void;
 }

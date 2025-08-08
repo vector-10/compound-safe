@@ -5,7 +5,12 @@ import { useCompoundPosition } from '@/lib/compound';
 
 export default function Dashboard() {
   const { address, isConnected } = useAccount();
-  const position = useCompoundPosition(address);
+  const position = useCompoundPosition("0x05FC2caB02916ad7c7B243550D90186bE7BcB4eA");
+
+  console.log('🔌 Wallet Debug:');
+  console.log('Address from useAccount:', address);
+  console.log('Is connected:', isConnected);
+
 
   return (
     <DashboardLayout>

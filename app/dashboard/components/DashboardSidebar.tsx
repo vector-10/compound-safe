@@ -1,12 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import { useAccount } from 'wagmi';
+import { useCompoundPosition } from '@/lib/compound';
 import { usePathname } from 'next/navigation';
 import { FaHome, FaBell, FaShieldAlt } from "react-icons/fa";
 import { IoPieChart, IoSettings, IoAlertCircle } from "react-icons/io5";
 
 
 export default function DashboardSidebar() {
+  const { address, isConnected } = useAccount();
+  const position = useCompoundPosition(address);
   const pathname = usePathname();
 
   const navItems = [
@@ -90,16 +94,38 @@ export default function DashboardSidebar() {
             </h3>
             <div className="space-y-2">
               <div className="flex justify-between text-xs">
-                <span className="text-gray-600 dark:text-gray-400">Total Value</span>
-                <span className="text-gray-900 dark:text-white font-medium">$0.00</span>
+                <span className="text-gray-600 dark:text-gray-400">Total Supplied</span>
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  ${position.loading ? '...' : position.suppliedUSDCFormatted}
+                </span>
               </div>
+              
               <div className="flex justify-between text-xs">
-                <span className="text-gray-600 dark:text-gray-400">Health Factor</span>
-                <span className="text-green-600 dark:text-green-400 font-medium">--</span>
+                <span className="text-gray-600 dark:text-gray-400">Total Borrowed</span>
+                <span className="text-red-600 dark:text-red-400 font-medium">
+                  ${position.loading ? '...' : position.borrowedUSDCFormatted}
+                </span>
               </div>
+              
+              <div className="flex justify-between text-xs">
+                <span className="text-gray-600 dark:text-gray-400">Collateral</span>
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  ${position.loading ? '...' : position.collateralValueUSD.toLocaleString()}
+                </span>
+              </div>
+              
               <div className="flex justify-between text-xs">
                 <span className="text-gray-600 dark:text-gray-400">Risk Level</span>
-                <span className="text-gray-500 dark:text-gray-400">No Position</span>
+                <span className={`font-medium capitalize ${
+                  !isConnected || position.loading ? 'text-gray-500 dark:text-gray-400' :
+                  position.riskLevel === 'safe' ? 'text-green-600 dark:text-green-400' :
+                  position.riskLevel === 'warning' ? 'text-yellow-600 dark:text-yellow-400' :
+                  'text-red-600 dark:text-red-400'
+                }`}>
+                  {!isConnected ? 'No Position' : 
+                   position.loading ? '...' : 
+                   position.riskLevel}
+                </span>
               </div>
             </div>
           </div>

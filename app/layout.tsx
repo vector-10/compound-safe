@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CompoundSafe",
-  description: "Never get liquidated again. DeFi Liquidation Risk Management Tool",
+  description: "Lend With Confidence, Borrow with Protection, Stay Liquid!",
 };
 
 export default function RootLayout({

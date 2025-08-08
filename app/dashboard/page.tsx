@@ -64,13 +64,12 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Risk Status Card */}
         {isConnected && !position.loading ? (
           <div className="mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Position Details
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm  md:text-lg">
               <div>
                 <span className="text-gray-600 dark:text-gray-400">Risk Level:</span>
                 <span className={`ml-2 font-medium capitalize ${

@@ -4,11 +4,9 @@
 require('dotenv').config();
 const { ethers } = require('ethers');
 
-// const RPC_URL = `https://sepolia.infura.io/v3/${process.env.SEPOLIA_RPC_URL}`;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 
-// Create a provider & signer for Sepolia
 const provider = new ethers.InfuraProvider("sepolia", process.env.SEPOLIA_RPC_API_KEY);
 const signer = new ethers.Wallet(PRIVATE_KEY, provider);
 

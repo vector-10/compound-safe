@@ -26,7 +26,6 @@ export function CursorEffects() {
       document.body.removeAttribute('data-dashboard')
     }
 
-    // Only hide default cursor when effects are active and working
     if (shouldDisable) {
       return () => {
         window.removeEventListener('resize', checkMobile)
@@ -93,7 +92,6 @@ export function CursorEffects() {
     }
   }, [shouldDisable, isMobile])
 
-  // Don't render anything on dashboard or mobile
   if (shouldDisable || isMobile) {
     return null
   }

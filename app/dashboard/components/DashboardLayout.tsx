@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import DashboardHeader from './DashboardHeader';
 import DashboardSidebar from './DashboardSidebar';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -33,9 +34,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           sidebarOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           <div className="p-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <span className="text-lg font-semibold text-gray-900 dark:text-white">CompoundSafe</span>
+          <div className="flex">
+              <ConnectButton />
             </div>
+
             <button 
               onClick={() => setSidebarOpen(false)}
               className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"

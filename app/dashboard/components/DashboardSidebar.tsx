@@ -67,25 +67,6 @@ export default function DashboardSidebar() {
           })}
         </nav>
 
-        <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
-          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-            <div className="flex items-center space-x-2 mb-2">
-              <FaShieldAlt className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-                Protection Status
-              </h3>
-            </div>
-            <p className="text-xs text-blue-700 dark:text-blue-300 mb-3">
-              Your positions are being monitored 24/7
-            </p>
-            <div className="w-full bg-blue-200 dark:bg-blue-800 rounded-full h-2">
-              <div className="bg-blue-600 dark:bg-blue-400 h-2 rounded-full w-4/5"></div>
-            </div>
-            <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
-              Active Protection
-            </p>
-          </div>
-        </div>
 
         <div className="mt-6">
           <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
@@ -130,6 +111,28 @@ export default function DashboardSidebar() {
             </div>
           </div>
         </div>
+
+        <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+            <div className="flex items-center space-x-2 mb-2">
+              <FaShieldAlt className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                Protection Status
+              </h3>
+            </div>
+            <p className="text-xs text-blue-700 dark:text-blue-300 mb-3">
+              Your positions are being monitored 24/7
+            </p>
+            <div className="w-full bg-blue-200 dark:bg-blue-800 rounded-full h-2">
+              <div className="bg-blue-600 dark:bg-blue-400 h-2 rounded-full w-4/5"></div>
+            </div>
+            <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
+              Active Protection
+            </p>
+          </div>
+        </div>
+
+        
       </div>
     </aside>
   );

@@ -161,9 +161,10 @@
 //          position.collateralWETH > BigInt(0)
 // }
 
-
 import { useReadContract } from 'wagmi'
 import { Address, formatUnits } from 'viem'
+import { useToast } from './use-toast'
+import { useEffect } from 'react'
 
 export const COMPOUND_ADDRESSES = {
   COMET_USDC: '0xAec1F48e02Cfb822Be958B68C7957156EB3F0b6e' as Address,
@@ -189,6 +190,8 @@ export interface CompoundPosition {
 }
 
 export function useCompoundPosition(address?: Address): CompoundPosition {
+  const { showError } = useToast()
+
   // Individual contract calls instead of useReadContracts
   const { data: borrowBalance, isLoading: borrowLoading, error: borrowError } = useReadContract({
     address: COMPOUND_ADDRESSES.COMET_USDC,
@@ -239,6 +242,18 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
     functionName: 'getUtilization',
     query: { enabled: !!address },
   })
+
+  useEffect(() => {
+    if (borrowError) {
+      showError(`Failed to fetch borrow balance: ${borrowError.shortMessage || borrowError.message}`)
+    }
+  }, [borrowError, showError])
+
+  useEffect(() => {
+    if (collateralError) {
+      showError(`Failed to fetch collateral balance: ${collateralError.shortMessage || collateralError.message}`)
+    }
+  }, [collateralError, showError])
 
   const isLoading = borrowLoading || suppliedLoading || collateralLoading || utilizationLoading
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useToast } from '@/lib/use-toast';
+import { CompoundPosition } from '@/lib/compound';
 
 interface AIUIModalProps {
   isOpen: boolean;
@@ -57,7 +58,7 @@ function AIUIModal({ isOpen, onClose, title, explanation, loading }: AIUIModalPr
 interface ExplainButtonProps {
   metric: string;
   value: string | number;
-  position: any;
+  position: CompoundPosition;
 }
 
 function ExplainButton({ metric, value, position }: ExplainButtonProps) {
@@ -71,13 +72,6 @@ function ExplainButton({ metric, value, position }: ExplainButtonProps) {
     setLoading(true);
     
     try {
-      
-      const requestBody = {
-        metric,
-        value,
-        position
-      };
-
       const serializedPosition = {
         healthPercentage: position.healthPercentage,
         healthFactor: position.healthFactor,
@@ -104,7 +98,6 @@ function ExplainButton({ metric, value, position }: ExplainButtonProps) {
       });
   
       if (!response.ok) {
-        const errorText = await response.text();
         throw new Error(`Request failed: ${response.status}`);
       }
   
@@ -151,13 +144,12 @@ function ExplainButton({ metric, value, position }: ExplainButtonProps) {
 }
 
 interface MetricCardProps {
-  position: any;
+  position: CompoundPosition;
 }
 
 export default function AIUIMetricCards({ position }: MetricCardProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {/* Total Supplied Card */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -174,7 +166,6 @@ export default function AIUIMetricCards({ position }: MetricCardProps) {
         </p>
       </div>
       
-      {/* Total Borrowed Card */}
       <div className="bg-white/90 dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -191,7 +182,6 @@ export default function AIUIMetricCards({ position }: MetricCardProps) {
         </p>
       </div>
 
-      {/* Collateral Value Card */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -211,7 +201,6 @@ export default function AIUIMetricCards({ position }: MetricCardProps) {
         </p>
       </div>
       
-      {/* Position Health Card */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">

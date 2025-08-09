@@ -130,6 +130,31 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
     wethPrice.price || 2400 
   )
 
+  useEffect(() => {
+    if (!isLoading && address && healthData.healthPercentage <= 50) {
+      fetch('/api/telegram-alert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          walletAddress: address,
+          healthPercentage: healthData.healthPercentage,
+          riskLevel: healthData.riskLevel,
+          positionData: {
+            collateralValueUSD: collateralResult 
+              ? Number(formatUnits(collateralResult, 18)) * (wethPrice.price || 2400)
+              : 0,
+            borrowedUSDCFormatted: borrowedResult 
+              ? formatUnits(borrowedResult, 6) 
+              : '0.00',
+            liquidationPrice: healthData.liquidationPrice,
+            bufferAmount: healthData.bufferAmount,
+            wethPrice: wethPrice.price || 2400
+          }
+        })
+      }).catch(console.error) 
+    }
+  }, [healthData, address, isLoading, collateralResult, borrowedResult, wethPrice.price])
+
   const processedData: CompoundPosition = {
     suppliedUSDC: suppliedResult || BigInt(0),
     suppliedUSDCFormatted: suppliedResult 

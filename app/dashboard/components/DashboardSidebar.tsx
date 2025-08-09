@@ -26,7 +26,7 @@ export default function DashboardSidebar() {
     },
     {
       name: 'Risk Monitor',
-      href: '/dashboard/risk',
+      href: '/dashboard/risk-monitor',
       icon: IoAlertCircle,
     },
     {

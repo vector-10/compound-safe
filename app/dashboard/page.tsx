@@ -37,7 +37,7 @@
             <div className="fixed inset-0 bg-black/70 bg-opacity-50 flex items-center justify-center z-50 p-4">
               <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 max-w-md w-full">
                 <div className="text-center">
-                  <div className="mb-6">
+                  <div className="mb-6 ">
                     <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
                     <FaShieldAlt className="w-10 h-12 lg:w-12 lg:h-12 text-blue-600" />
                     </div>
@@ -47,7 +47,7 @@
                     </p>
                   </div>
                   
-                  <div className="mb-6 flex justify-center">
+                  <div className="mb-6 flex justify-center ">
                     <ConnectButton />
                   </div>
                   

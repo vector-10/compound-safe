@@ -71,6 +71,7 @@ export function useWETHPrice(): PriceData {
 
   useEffect(() => {
     fetchWETHPrice();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -79,6 +80,7 @@ export function useWETHPrice(): PriceData {
     }, 60000); 
 
     return () => clearInterval(interval);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return priceData;

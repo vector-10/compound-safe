@@ -172,7 +172,7 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
     error: borrowError?.message || null,
   }
 
-  console.log('Final data:', processedData);
+  // console.log('Final data:', processedData);
   return processedData
 }
 

@@ -4,6 +4,7 @@ import { FaShieldAlt } from "react-icons/fa";
 import { useAccount } from 'wagmi';
 import { useCompoundPosition } from '@/lib/compound';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import AIUIMetricCards from './components/AIUIMetricCards';
 import { useToast } from '@/lib/use-toast';
 import { useEffect } from 'react';
 
@@ -58,60 +59,7 @@ export default function Dashboard() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Total Supplied
-            </h3>
-            <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-              ${position.loading ? '...' : position.suppliedUSDCFormatted}
-            </p>
-          </div>
-          
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Total Borrowed
-            </h3>
-            <p className="text-2xl font-bold text-red-600 dark:text-red-400">
-              ${position.loading ? '...' : position.borrowedUSDCFormatted}
-            </p>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Collateral Value
-            </h3>
-            <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-              ${position.loading ? '...' : position.collateralValueUSD.toLocaleString()}
-            </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              UNIT WETH PRICE @ ${position.loading ? '...' : position.wethPrice.toLocaleString()}
-            </p>
-          </div>
-          
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Position Health
-            </h3>
-            <p className={`text-2xl font-bold ${
-              position.riskLevel === 'safe' ? 'text-green-600 dark:text-green-400' :
-              position.riskLevel === 'warning' ? 'text-yellow-600 dark:text-yellow-400' :
-              'text-red-600 dark:text-red-400'
-            }`}>
-              {position.loading ? '--' : `${position.healthPercentage.toFixed(0)}%`}
-            </p>
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-2">
-              <div 
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  position.riskLevel === 'safe' ? 'bg-green-500' :
-                  position.riskLevel === 'warning' ? 'bg-yellow-500' :
-                  'bg-red-500'
-                }`}
-                style={{ width: `${position.loading ? 0 : position.healthPercentage}%` }}
-              ></div>
-            </div>
-          </div>
-        </div>
+<AIUIMetricCards position={position} />
 
         {/* New Advanced Metrics Section */}
         {isConnected && !position.loading ? (

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { generateHealthAlert } from '@/lib/utilities'
+import { generateHealthAlert } from '@/lib/telegram-helper'
 import fs from 'fs/promises'
 import path from 'path'
 

@@ -20,9 +20,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (isConnected && !position.loading && position.riskLevel === 'warning') {
-      showWarning('Your health factor is in the warning zone!');
+      showWarning(`Your position health is at ${position.healthPercentage.toFixed(0)}% - Consider reducing risk!`);
     }
-  }, [isConnected, position.loading, position.riskLevel, showWarning]);
+  }, [isConnected, position.loading, position.riskLevel, position.healthPercentage, showWarning]);
 
   return (
     <DashboardLayout>
@@ -79,61 +79,123 @@ export default function Dashboard() {
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Collateral Deposit
+              Collateral Value
             </h3>
             <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-              ${position.collateralValueUSD.toLocaleString()}
+              ${position.loading ? '...' : position.collateralValueUSD.toLocaleString()}
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              WETH @ ${position.loading ? '...' : position.wethPrice.toLocaleString()}
             </p>
           </div>
           
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Health Factor
+              Position Health
             </h3>
             <p className={`text-2xl font-bold ${
               position.riskLevel === 'safe' ? 'text-green-600 dark:text-green-400' :
               position.riskLevel === 'warning' ? 'text-yellow-600 dark:text-yellow-400' :
               'text-red-600 dark:text-red-400'
             }`}>
-              {position.loading ? '--' : position.healthFactor.toFixed(2)}
+              {position.loading ? '--' : `${position.healthPercentage.toFixed(0)}%`}
             </p>
+            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-2">
+              <div 
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  position.riskLevel === 'safe' ? 'bg-green-500' :
+                  position.riskLevel === 'warning' ? 'bg-yellow-500' :
+                  'bg-red-500'
+                }`}
+                style={{ width: `${position.loading ? 0 : position.healthPercentage}%` }}
+              ></div>
+            </div>
           </div>
         </div>
 
+        {/* New Advanced Metrics Section */}
         {isConnected && !position.loading ? (
-          <div className="mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-4">
-              Position Details
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm  md:text-lg">
-              <div>
-                <span className="text-gray-600 dark:text-gray-400">Risk Level:</span>
-                <span className={`ml-2 font-medium capitalize ${
-                  position.riskLevel === 'safe' ? 'text-green-600' :
-                  position.riskLevel === 'warning' ? 'text-yellow-600' :
-                  'text-red-600'
-                }`}>
-                  {position.riskLevel}
-                </span>
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Position Risk Analysis */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                Risk Analysis
+              </h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Risk Level:</span>
+                  <span className={`font-medium capitalize px-2 py-1 rounded-full text-sm ${
+                    position.riskLevel === 'safe' ? 'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400' :
+                    position.riskLevel === 'warning' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400' :
+                    'bg-red-100 text-red-700 dark:bg-red-900/20 dark:text-red-400'
+                  }`}>
+                    {position.riskLevel}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Borrow Capacity Used:</span>
+                  <span className="font-medium">
+                    {position.currentBorrowCapacityUsed.toFixed(1)}%
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Liquidation Price:</span>
+                  <span className="font-medium text-red-600 dark:text-red-400">
+                    ${position.liquidationPrice.toLocaleString()}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Safety Buffer:</span>
+                  <span className="font-medium text-green-600 dark:text-green-400">
+                    ${position.bufferAmount.toLocaleString()}
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="text-gray-600 dark:text-gray-400">Collateral Value:</span>
-                <span className="ml-2 font-medium">
-                  ${position.collateralValueUSD.toLocaleString()}
-                </span>
+            </div>
+
+            {/* Borrowing Insights */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                Borrowing Insights
+              </h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Max Borrowable:</span>
+                  <span className="font-medium">
+                    ${position.maxBorrowableUSD.toLocaleString()}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Available to Borrow:</span>
+                  <span className="font-medium text-blue-600 dark:text-blue-400">
+                    ${position.safeBorrowAmount.toLocaleString()}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">WETH Collateral:</span>
+                  <span className="font-medium">
+                    {position.collateralWETHFormatted} WETH
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Market Utilization:</span>
+                  <span className="font-medium">
+                    {position.utilizationRate.toFixed(2)}%
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="text-gray-600 dark:text-gray-400">WETH Collateral:</span>
-                <span className="ml-2 font-medium">
-                  {position.collateralWETHFormatted} WETH
-                </span>
-              </div>
-              <div>
-                <span className="text-gray-600 dark:text-gray-400">Utilization Rate:</span>
-                <span className="ml-2 font-medium">
-                  {position.utilizationRate.toFixed(2)}%
-                </span>
-              </div>
+            </div>
+          </div>
+        ) : null}
+
+        {/* Health Factor Legacy (for comparison) */}
+        {isConnected && !position.loading ? (
+          <div className="mt-6 bg-gray-50 dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-gray-600 dark:text-gray-400">Legacy Health Factor:</span>
+              <span className="font-medium text-gray-900 dark:text-white">
+                {position.healthFactor.toFixed(2)}
+              </span>
             </div>
           </div>
         ) : null}

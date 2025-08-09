@@ -76,6 +76,8 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
     query: { enabled: !!address },
   })
 
+
+
   const { data: collateralBalance, isLoading: collateralLoading, error: collateralError } = useReadContract({
     address: COMPOUND_ADDRESSES.COMET_USDC,
     abi: [
@@ -95,12 +97,13 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
     query: { enabled: !!address },
   })
 
-  const { data: utilization, isLoading: utilizationLoading } = useReadContract({
+  const { data: utilization, isLoading: utilizationLoading, error: utilizationError } = useReadContract({
     address: COMPOUND_ADDRESSES.COMET_USDC,
     abi: ['function getUtilization() external view returns (uint256)'],
     functionName: 'getUtilization',
     query: { enabled: !!address },
   })
+
 
   useEffect(() => {
     if (borrowError) {

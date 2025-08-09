@@ -101,13 +101,15 @@ export async function POST(request: NextRequest) {
 
 function generatePrompt(metric: string, value: string | number, position: any): string {
   const baseContext = `
-  Current Position Context:
-  - Health: ${position.healthPercentage}% (${position.riskLevel})
-  - Collateral: $${position.collateralValueUSD?.toLocaleString()} WETH
-  - Borrowed: ${position.borrowedUSDCFormatted} USDC
-  - WETH Price: $${position.wethPrice?.toLocaleString()}
-  - Liquidation Price: $${position.liquidationPrice?.toLocaleString()}
-  `;
+Current Compound Finance Position Context:
+- Health: ${position.healthPercentage}% (${position.riskLevel})
+- Collateral: $${position.collateralValueUSD?.toLocaleString()} WETH on Compound
+- Borrowed: ${position.borrowedUSDCFormatted} USDC from Compound
+- WETH Price: $${position.wethPrice?.toLocaleString()}
+- Liquidation Price: $${position.liquidationPrice?.toLocaleString()}
+
+You are explaining metrics for a Compound Finance V3 position. Always refer to "Compound Finance" or "Compound V3" specifically, not generic "DeFi lending protocol".
+`;
 
   const prompts = {
     'healthPercentage': `${baseContext}
@@ -168,7 +170,9 @@ function getFallbackExplanation(metric: string, value: string | number, position
     
     'currentBorrowCapacityUsed': `${value}% of your maximum borrowing capacity is currently used. Higher percentages mean greater liquidation risk.`,
     
-    'collateralValueUSD': `Your $${value} WETH collateral backs your USDC loan. If WETH price falls, your liquidation risk increases.`
+    'suppliedUSDC': `${value} USDC supplied to Compound Finance. This is your contribution to Compound's USDC lending pool, earning interest from borrowers.`,
+
+    'collateralValueUSD': `Your $${value} WETH collateral deposited in Compound Finance. This backs your USDC loan and protects other Compound users.`
   };
 
   return fallbacks[metric as keyof typeof fallbacks] || `This metric shows ${value} for your position.`;

@@ -19,7 +19,7 @@ function AIUIModal({ isOpen, onClose, title, explanation, loading }: AIUIModalPr
       <div className="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full p-6">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            🤖 {title} Explained
+             {title} Explained
           </h3>
           <button
             onClick={onClose}
@@ -111,7 +111,7 @@ function ExplainButton({ metric, value, position }: ExplainButtonProps) {
       const data = await response.json();
       setExplanation(data.explanation);
     } catch (error) {
-      console.error('💥 Frontend error:', error);
+      console.error(' Frontend error:', error);
       showError('Failed to get AI explanation');
       setExplanation('Unable to generate explanation at this time. Please try again later.');
     } finally {
@@ -136,7 +136,7 @@ function ExplainButton({ metric, value, position }: ExplainButtonProps) {
         className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium hover:underline transition-colors"
         disabled={position.loading}
       >
-        Explain ℹ️
+        Explain
       </button>
       
       <AIUIModal

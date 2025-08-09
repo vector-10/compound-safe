@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs/promises'
-import path from 'path'
+import dbConnect from '@/lib/mongodb'
+import TelegramUser from '@/app/models/TelegramUser'
+
 
 interface TelegramUpdate {
  message?: {
@@ -21,7 +22,6 @@ interface TelegramUsers {
  }
 }
 
-const DATA_FILE = path.join(process.cwd(), 'data', 'telegram-users.json')
 
 async function sendTelegramMessage(chatId: number, text: string): Promise<void> {
  await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -36,30 +36,24 @@ async function sendTelegramMessage(chatId: number, text: string): Promise<void> 
 }
 
 async function linkWalletToTelegram(walletAddress: string, chatId: string): Promise<void> {
- try {
-   let users: TelegramUsers = {}   
-   try {
-     const data = await fs.readFile(DATA_FILE, 'utf8')
-     users = JSON.parse(data)
-   } catch {
-     await fs.mkdir(path.dirname(DATA_FILE), { recursive: true })
-   }
-
-   users[walletAddress] = {
-     chatId,
-     linkedAt: Date.now()
-   }
-
-   await fs.writeFile(DATA_FILE, JSON.stringify(users, null, 2))
- } catch (error) {
-   console.error('Failed to link wallet:', error)
-   throw error
+  try {
+    await dbConnect()
+    
+    await TelegramUser.findOneAndUpdate(
+      { walletAddress },
+      { walletAddress, chatId, linkedAt: new Date() },
+      { upsert: true, new: true }
+    )
+  } catch (error) {
+    console.error('Failed to link wallet:', error)
+    throw error
+  }
  }
-}
 
 export async function POST(request: NextRequest) {
  try {
    const update: TelegramUpdate = await request.json()
+   console.log('Webhook received:', await request.json())
    
    if (!update.message || !update.message.text) {
      return NextResponse.json({ ok: true })

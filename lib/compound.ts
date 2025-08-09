@@ -97,7 +97,7 @@ export function useCompoundPosition(address?: Address): CompoundPosition {
     query: { enabled: !!address },
   })
 
-  const { data: utilization, isLoading: utilizationLoading, error: utilizationError } = useReadContract({
+  const { data: utilization, isLoading: utilizationLoading } = useReadContract({
     address: COMPOUND_ADDRESSES.COMET_USDC,
     abi: ['function getUtilization() external view returns (uint256)'],
     functionName: 'getUtilization',

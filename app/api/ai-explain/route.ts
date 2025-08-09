@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function generatePrompt(metric: string, value: string | number, position: any): string {
+function generatePrompt(metric: string, value: string | number, position: any): string { // eslint-disable-line @typescript-eslint/no-explicit-any
   const baseContext = `
 Current Compound Finance Position Context:
 - Health: ${position.healthPercentage}% (${position.riskLevel})
@@ -158,7 +158,7 @@ You are explaining metrics for a Compound Finance V3 position. Always refer to "
   return prompts[metric as keyof typeof prompts] || `Explain the metric "${metric}" with value "${value}" in the context of DeFi lending. Keep it simple and under 50 words.`;
 }
 
-function getFallbackExplanation(metric: string, value: string | number, position: any): string {
+function getFallbackExplanation(metric: string, value: string | number, position: any): string { // eslint-disable-line @typescript-eslint/no-explicit-any
   const fallbacks = {
     'healthPercentage': `${value}% health means you're using ${100 - Number(value)}% of your borrowing capacity. Above 50% is safe, below 20% risks liquidation.`,
     

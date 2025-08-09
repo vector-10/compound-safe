@@ -85,7 +85,7 @@ export default function Dashboard() {
               ${position.loading ? '...' : position.collateralValueUSD.toLocaleString()}
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              WETH @ ${position.loading ? '...' : position.wethPrice.toLocaleString()}
+              UNIT WETH PRICE @ ${position.loading ? '...' : position.wethPrice.toLocaleString()}
             </p>
           </div>
           
@@ -188,17 +188,7 @@ export default function Dashboard() {
           </div>
         ) : null}
 
-        {/* Health Factor Legacy (for comparison) */}
-        {isConnected && !position.loading ? (
-          <div className="mt-6 bg-gray-50 dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <div className="flex justify-between items-center text-sm">
-              <span className="text-gray-600 dark:text-gray-400">Legacy Health Factor:</span>
-              <span className="font-medium text-gray-900 dark:text-white">
-                {position.healthFactor.toFixed(2)}
-              </span>
-            </div>
-          </div>
-        ) : null}
+        
       </div>
     </DashboardLayout>
   );

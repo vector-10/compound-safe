@@ -1,6 +1,6 @@
 # CompoundSafe: [Live Application](https://compound-safe.vercel.app)
 
-Live Link: [Live Application](https://compound-safe.vercel.app)
+Live Link:[Live Application](https://compound-safe.vercel.app)
 
 A comprehensive web application, enabling users manage risks and monitor the position of their assets on Compound Finance Protocol. It offers real-time AI powered alerts through a telegram integration for notifications and Conditional emails.
 
@@ -88,7 +88,7 @@ pnpm install
 Create `.env.local` file:
 ```env
 NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_id
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/compound-safe
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
 GEMINI_API_KEY=your_gemini_api_key
 ```
@@ -120,16 +120,6 @@ pnpm run build
 pnpm start
 ```
 
-## API Endpoints
-
-### Telegram Integration
-- `POST /api/telegram-webhook` - Receives Telegram messages and handles bot interactions
-- `POST /api/telegram-alert` - Sends intelligent alerts to linked users
-- `POST /api/check-telegram-link` - Verifies if wallet is linked to Telegram
-
-### AI Services
-- `POST /api/ai-explain` - Generates explanations for DeFi metrics
-
 ## Usage Guide
 
 ### Initial Setup
@@ -150,30 +140,6 @@ pnpm start
 - **5% Health**: Emergency liquidation warnings
 - Alerts include specific actions and current market conditions
 
-## Project Structure
-
-```
-compound-safe/
-├── app/
-│   ├── api/                    # API routes
-│   │   ├── ai-explain/         # AI explanation endpoints
-│   │   ├── check-telegram-link/ # Telegram verification
-│   │   ├── telegram-alert/     # Alert sending system
-│   │   └── telegram-webhook/   # Bot message handling
-│   ├── components/             # Reusable UI components
-│   ├── dashboard/              # Dashboard pages
-│   └── globals.css             # Global styles
-├── lib/                        # Utility libraries
-│   ├── compound.ts            # Compound V3 integration
-│   ├── mongodb.ts             # Database connection
-│   ├── telegram-helpers.ts    # Alert generation
-│   └── utilities.ts           # Price feeds and helpers
-├── models/                     # Database schemas
-│   └── TelegramUser.ts        # User model
-└── types/                      # TypeScript definitions
-    └── global.d.ts            # Global type declarations
-```
-
 ## Security Considerations
 
 ### Data Protection
@@ -182,11 +148,6 @@ compound-safe/
 - Environment variables for sensitive API keys
 - Telegram chat IDs securely linked to wallet addresses in DB
 
-### Smart Contract Safety
-- Read-only contract interactions
-- No transaction signing or fund handling
-- Direct integration with verified Compound V3 contracts
-- Real-time data validation and error handling
 
 ## Testing and Validation
 
@@ -216,29 +177,17 @@ compound-safe/
 - Optimized smart contract call patterns
 
 
-
-
 ## Future Enhancements
 
-### Planned Features
 1. **Lender-Focused Alerts**: Notifications for yield optimization opportunities
 2. **Multi-Asset Support**: More integrations for all kinds on onchain Assets, whether used for collateral or supply.
 3. **Advanced Analytics**: Historical position tracking and risk analysis data to help ne wusers maximize yields and their position.
 4. **Improved AIUI**: AIUI is an experiment i started, depending on how users see it. Would love to improve it for feedback.
+5. **WebSocket Integration**: Real-time data streaming from markets
+6. **Advanced Error Handling**: Comprehensive error boundaries and recovery 
+7. **Performance Monitoring**: Application performance tracking and optimization of user position
+8. **Security Enhancements**: Additional security layers and audit compliance according to industry standards
 
-### Technical Improvements
-1. **WebSocket Integration**: Real-time data streaming from markets
-2. **Advanced Error Handling**: Comprehensive error boundaries and recovery 
-3. **Performance Monitoring**: Application performance tracking and optimization of user position
-4. **Security Enhancements**: Additional security layers and audit compliance according to industry standards
-
-
-## Contact and Support
-
-For technical support, feature requests, or partnership inquiries:
-- Demo: [Live Application](https://compound-safe.vercel.app)
-- GitHub Issues: [Project Issues](https://github.com/yourusername/compound-safe/issues)
-- Documentation: [Full Documentation](https://compound-safe-docs.vercel.app)
 
 ---
 

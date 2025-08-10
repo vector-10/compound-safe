@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="mb-10 md:mb-0 md:w-1/2 lg:w-2/5 pr-8">
             
           <div className="flex items-center space-x-1 lg:space-x-2">
-                        <span className="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white">
+                        <span className="text-lg lg:text-2xl font-semibold text-white">
                             CompoundSafe
                         </span>
                         <FaShieldAlt className="w-5 h-5 lg:w-8 lg:h-8 text-blue-600" />

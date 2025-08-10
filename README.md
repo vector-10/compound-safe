@@ -1,4 +1,4 @@
-# CompoundSafe
+# CompoundSafe: [Live Application](https://compound-safe.vercel.app)
 
 A comprehensive web application, enabling users manage risks and monitor the position of their assets on Compound Finance Protocol. It offers real-time AI powered alerts through a telegram integration for notifications and Conditional emails.
 
@@ -19,29 +19,31 @@ CompoundSafe solves through an intuitive user interface/experience, comprehensiv
 
 ### Core Functionality
 - **Position Health Monitoring**: Real-time calculation of liquidation risk using Compound V3 data
-- **Multi-Level Alert System**: Progressive warnings as positions approach liquidation
-- **Telegram Integration**: Instant notifications with QR code and deep-link setup
-- **AI-Powered Insights**: Contextual explanations of position metrics and risk factors
+- **Multi-Level Alert System**: Progressive warnings as positions approach liquidation, additional insights to enable lenders increase yialds based on interest rates.
+- **Telegram Integration**: Instant notifications with QR code and deep-link setup for Telegram
+- **AI-Powered Insights**: Contextual explanations of position metrics and risk factors with AIUI
 
 ### Technical Features
-- **Compound V3 Integration**: Direct integration with Comet smart contracts
-- **Real-time Price Feeds**: Live WETH pricing from CoinGecko API
-- **MongoDB Persistence**: Reliable storage for user preferences and alert history
-- **Intelligent Alert Throttling**: Prevents spam while ensuring critical alerts are delivered
+- **Security**: Application is purely disconnected from compound to minimize risk of malicious intentions by attackers.
+- **Compound V3 Integration**: Direct integration with Comet smart contracts as provided in documentation
+- **Real-time Price Feeds**: Live pricing of Collateral Assets(Currently focused on WETH) with CoinGEcko API Integration
+- **MongoDB Persistence**: Reliable storage for user preferences and alert history on Telegram
+- **Intelligent Alert Throttling**: Prevents spam while ensuring critical alerts are delivered to users.
 
 ### User Experience
-- **One-Click Setup**: Simple Telegram bot linking process
-- **Dark/Light Mode**: Complete theme support across all interfaces
-- **Responsive Design**: Optimized for desktop and mobile devices
-- **Comprehensive Dashboard**: Complete position overview with risk analysis
+- **landing Page**: Responsive Landing Page with a mobile-first focus to enable users understand what we do at a glance.
+- **Wallet Connect**: Full fetching of user data with just a simple wallet conect, very easy an intuitive
+- **Responsive Design**: Mobile first design, philosophy, optimized for desktops
+- **Comprehensive Dashboard**: Complete position overview with risk analysis and AI Explanations for easy understanding seamless usage.
 
 ## Architecture
 
 ### Frontend Stack
-- **Next.js 14**: React framework with App Router
+- **Next.js 15+**: React framework with App Router
 - **TypeScript**: Type-safe development
 - **Tailwind CSS**: Utility-first styling with theme support
 - **Wagmi + RainbowKit**: Web3 wallet connection and blockchain interactions
+- **Infura RPC**: For RPC connection to Compound V3 Comet 
 - **React Hooks**: Custom hooks for Compound position data and price feeds
 
 ### Backend Infrastructure
@@ -53,64 +55,21 @@ CompoundSafe solves through an intuitive user interface/experience, comprehensiv
 
 ### Blockchain Integration
 - **Compound V3 (Comet)**: Direct smart contract interactions
-- **Ethereum Mainnet**: Primary network support
+- **Ethereum Sepolia**: Built and Tested in Ethereum testnet
+- **Ethereum Mainnet**: Primary network support for Mainnet
 - **Viem**: Low-level Ethereum library for contract calls
 - **Real-time Data**: Live position and market data
 
-## Technical Implementation
-
-### Smart Contract Integration
-```typescript
-// Real-time position health calculation
-const healthData = calculateHealthData(
-  collateralWETH,
-  borrowedUSDC,
-  wethPrice
-)
-
-// Direct Compound V3 contract calls
-const borrowBalance = useReadContract({
-  address: COMPOUND_ADDRESSES.COMET_USDC,
-  functionName: 'borrowBalanceOf',
-  args: [userAddress]
-})
-```
-
-### Alert Intelligence
-```typescript
-// AI-powered alert generation
-const alert = await generateHealthAlert({
-  healthPercentage: 15,
-  riskLevel: 'danger',
-  positionData: {
-    collateralValueUSD: 5000,
-    borrowedAmount: 4000,
-    liquidationPrice: 2100
-  }
-})
-```
-
-### Database Schema
-```typescript
-// User-Telegram mapping with alert history
-interface TelegramUser {
-  walletAddress: string
-  chatId: string
-  linkedAt: Date
-  lastAlert50?: Date
-  lastAlert20?: Date
-  lastAlert5?: Date
-}
-```
 
 ## Installation and Setup
 
 ### Prerequisites
-- Node.js 18 or later
+- Node.js 18 or later 
 - pnpm package manager
-- MongoDB Atlas account
+- MongoDB Atlas account and URI
 - Telegram Bot Token
 - Google Gemini API key
+
 
 ### Clone Repository
 ```bash
@@ -150,12 +109,12 @@ curl -X POST "https://api.telegram.org/bot<BOT_TOKEN>/setWebhook" \
 
 ### Development Server
 ```bash
-pnpm dev
+pnpm run dev
 ```
 
 ### Production Deployment
 ```bash
-pnpm build
+pnpm run build
 pnpm start
 ```
 
@@ -168,7 +127,6 @@ pnpm start
 
 ### AI Services
 - `POST /api/ai-explain` - Generates explanations for DeFi metrics
-- `PUT /api/ai-explain` - Generates health alert messages
 
 ## Usage Guide
 
@@ -220,7 +178,7 @@ compound-safe/
 - No private keys stored or transmitted
 - Wallet addresses encrypted in database
 - Environment variables for sensitive API keys
-- Telegram chat IDs securely linked to wallet addresses
+- Telegram chat IDs securely linked to wallet addresses in DB
 
 ### Smart Contract Safety
 - Read-only contract interactions
@@ -255,37 +213,23 @@ compound-safe/
 - Efficient Telegram bot webhook handling
 - Optimized smart contract call patterns
 
+
+
+
 ## Future Enhancements
 
 ### Planned Features
 1. **Lender-Focused Alerts**: Notifications for yield optimization opportunities
-2. **Multi-Protocol Support**: Integration with Aave, MakerDAO, and other DeFi protocols
-3. **Advanced Analytics**: Historical position tracking and risk analysis
-4. **Mobile Application**: Native mobile app for enhanced user experience
+2. **Multi-Asset Support**: More integrations for all kinds on onchain Assets, whether used for collateral or supply.
+3. **Advanced Analytics**: Historical position tracking and risk analysis data to help ne wusers maximize yields and their position.
+4. **Improved AIUI**: AIUI is an experiment i started, depending on how users see it. Would love to improve it for feedback.
 
 ### Technical Improvements
-1. **WebSocket Integration**: Real-time data streaming
-2. **Advanced Error Handling**: Comprehensive error boundaries and recovery
-3. **Performance Monitoring**: Application performance tracking and optimization
-4. **Security Enhancements**: Additional security layers and audit compliance
+1. **WebSocket Integration**: Real-time data streaming from markets
+2. **Advanced Error Handling**: Comprehensive error boundaries and recovery 
+3. **Performance Monitoring**: Application performance tracking and optimization of user position
+4. **Security Enhancements**: Additional security layers and audit compliance according to industry standards
 
-## Contributing
-
-### Development Guidelines
-1. Follow TypeScript strict mode
-2. Maintain comprehensive test coverage
-3. Use conventional commit messages
-4. Ensure responsive design compatibility
-
-### Code Standards
-- ESLint and Prettier configuration
-- Component-based architecture
-- Comprehensive error handling
-- Type safety throughout codebase
-
-## License
-
-MIT License - see LICENSE file for details
 
 ## Contact and Support
 

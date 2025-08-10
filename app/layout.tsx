@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from 'react-hot-toast';
 import "./globals.css";
 import { Providers } from "./Providers";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Loader from "@/components/Loader";
 import { CursorEffects } from "@/components/CursorEffects";
 import { GridBackground } from "@/components/GridBackground";
@@ -35,12 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
       >
         <Providers>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
+     
           <Loader />
           <GridBackground />
           <CursorEffects />
@@ -68,8 +62,7 @@ export default function RootLayout({
               },
             },
           }}
-        />
-        </ThemeProvider>    
+        />  
         </Providers>  
       </body>
     </html>

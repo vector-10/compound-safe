@@ -1,5 +1,7 @@
 # CompoundSafe: [Live Application](https://compound-safe.vercel.app)
 
+Live Link: [Live Application](https://compound-safe.vercel.app)
+
 A comprehensive web application, enabling users manage risks and monitor the position of their assets on Compound Finance Protocol. It offers real-time AI powered alerts through a telegram integration for notifications and Conditional emails.
 
 ## Problem Statement
@@ -234,9 +236,9 @@ compound-safe/
 ## Contact and Support
 
 For technical support, feature requests, or partnership inquiries:
+- Demo: [Live Application](https://compound-safe.vercel.app)
 - GitHub Issues: [Project Issues](https://github.com/yourusername/compound-safe/issues)
 - Documentation: [Full Documentation](https://compound-safe-docs.vercel.app)
-- Demo: [Live Application](https://compound-safe.vercel.app)
 
 ---
 

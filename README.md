@@ -1,19 +1,19 @@
 # CompoundSafe
 
-A comprehensive DeFi risk management platform that provides real-time liquidation alerts and position monitoring for Compound Finance V3 users through intelligent Telegram notifications.
+A comprehensive web application, enabling users manage risks and monitor the position of their assets on Compound Finance Protocol. It offers real-time AI powered alerts through a telegram integration for notifications and Conditional emails.
 
 ## Problem Statement
 
-DeFi users face constant liquidation risks due to volatile crypto markets and changing collateral values. Current solutions require manual monitoring or basic threshold alerts without context. Users need intelligent, proactive risk management that provides actionable insights to protect their positions.
+Untimely Liquidation remains one of the biggest risk for DeFi users(lenders and borrowers) till date, the current solutions that exist require manual monitoring with complex UX or basic threshold alerts without any context to users positioning.This makes DeFi a very tedious endeavour, with users always havign to be conscious of prices and market volatility. It also keeps the barrier to entry for Web3 DeFi very high, users should be able to let assets work for them and have automated risk management strategies that make DeFi more inclusive.
 
 ## Solution
 
-CompoundSafe delivers intelligent risk monitoring through:
+CompoundSafe solves through an intuitive user interface/experience, comprehensive position monitoring and AI powered risk alerts for Compound Finance users with the Comet V3 integration for user assets. 
 
-- **Real-time Position Health Tracking**: Continuous monitoring of Compound V3 positions with precise health calculations
-- **AI-Powered Telegram Alerts**: Context-aware notifications that explain risks and provide specific actions
-- **Proactive Risk Management**: Early warning system with multiple threshold levels (50%, 20%, 5% health)
-- **Intelligent Explanations**: Gemini AI integration provides clear explanations of complex DeFi metrics
+- **Real-time Position Health Tracking**: Continuous monitoring of Asset positions with a custom health factor calculation( factoring the 80% collateral lending by Compound) to enable healthy risk management
+- **AI-Powered Telegram Alerts**: AI Powered Context-aware notifications that explain risks and provide specific actions through a telegram integration for users
+- **Proactive Risk Management**: Early warning system with multiple threshold levels (50%, 20%, 5% health) enabling users take actions to save their assets position
+- **Intelligent Explanations**: Gemini AI integration provides clear explanations of complex DeFi metrics on the dashboard through an experiment concept called AIUI (Artificial Intelligent User interface). 
 
 ## Key Features
 

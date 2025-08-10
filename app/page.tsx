@@ -15,34 +15,34 @@ const Page = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors relative">
+        <div className="min-h-screen bg-white bg-gray-900 transition-colors relative">
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none md:hidden" />
             
-            <header className="border-b border-gray-200 dark:border-gray-800 relative z-10">
+            <header className="border-b border-gray-200 border-gray-800 relative z-10">
                 <div className="mx-auto px-4 sm:px-6 lg:px-8">
                     <nav className="flex items-center justify-between h-16 lg:h-20">
 
                     <div className="flex items-center space-x-1 lg:space-x-2">
-                        <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
+                        <span className="text-lg lg:text-xl font-semibold text-gray-900 text-white">
                             CompoundSafe
                         </span>
                         <FaShieldAlt className="w-5 h-5 lg:w-8 lg:h-8 text-blue-600" />
                     </div>
 
                         <div className="hidden lg:flex items-center space-x-8">
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 text-gray-300 hover:text-white hover:text-blue-400 transition-colors text-sm">
                                 Home
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 text-gray-300 hover:text-white hover:text-blue-400 transition-colors text-sm">
                                 About
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 text-gray-300 hover:text-white hover:text-blue-400 transition-colors text-sm">
                                 Technology
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 text-gray-300 hover:text-white hover:text-blue-400 transition-colors text-sm">
                                 Docs
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm">
+                            <a href="#" className="text-gray-600 text-gray-300 hover:text-white hover:text-blue-400 transition-colors text-sm">
                                 Contact
                             </a>
                         </div>
@@ -52,7 +52,7 @@ const Page = () => {
                             
                             <Link 
                                 href="/dashboard" 
-                                className="bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 py-3 rounded-md text-sm font-medium transition-colors"
+                                className="bg-gray-800 bg-gray-700 hover:bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md text-sm font-medium transition-colors"
                             >
                                 GET STARTED
                             </Link>
@@ -62,7 +62,7 @@ const Page = () => {
                       
                             <button 
                                 onClick={() => setMobileMenuOpen(true)}
-                                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                className="text-gray-600 text-gray-300 hover:text-gray-900 hover:text-white transition-colors"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -82,20 +82,20 @@ const Page = () => {
             )}
 
             {/* Mobile Menu - Slide from Right */}
-            <div className={`fixed top-0 right-0 h-full w-70 bg-white dark:bg-gray-900 shadow-xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+            <div className={`fixed top-0 right-0 h-full w-70 bg-white bg-gray-900 shadow-xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
                 mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}>
                 {/* Menu Header */}
-                <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+                <div className="flex items-center justify-between p-6 border-b border-gray-200 border-gray-800">
                     <div className="flex items-center space-x-1 lg:space-x-2">
-                            <span className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white">
+                            <span className="text-lg lg:text-xl font-semibold text-gray-900 text-white">
                                 CompoundSafe
                             </span>
                             <FaShieldAlt className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                         </div>
                     <button 
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                        className="text-gray-600 text-gray-300 hover:text-gray-900 hover:text-white transition-colors"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -108,35 +108,35 @@ const Page = () => {
                     <nav className="space-y-4">
                         <a 
                             href="#" 
-                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            className="block text-lg text-gray-900 text-white hover:text-blue-600 hover:text-blue-400 transition-colors py-1"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Home
                         </a>
                         <a 
                             href="#" 
-                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            className="block text-lg text-gray-900 text-white hover:text-blue-600 hover:text-blue-400 transition-colors py-1"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             About
                         </a>
                         <a 
                             href="#" 
-                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            className="block text-lg text-gray-900 text-white hover:text-blue-600 hover:text-blue-400 transition-colors py-1"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Technology
                         </a>
                         <a 
                             href="#" 
-                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                            className="block text-lg text-gray-900 text-white hover:text-blue-600 hover:text-blue-400 transition-colors py-1"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Docs
                         </a>
                         <a 
                             href="#" 
-                            className="block text-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-3"
+                            className="block text-lg text-gray-900 text-white hover:text-blue-600 hover:text-blue-400 transition-colors py-3"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Contact
@@ -144,7 +144,7 @@ const Page = () => {
                     </nav>
 
                     {/* Mobile CTA Button */}
-                    <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
+                    <div className="mt-8 pt-6 border-t border-gray-200 border-gray-800">
                         <Link 
                             href="/dashboard"
                             className="w-full bg-white hover:bg-blue-700 text-black px-6 py-4 rounded-md font-semibold text-lg transition-colors text-center block"
@@ -160,7 +160,7 @@ const Page = () => {
                 {/* Hero section with constrained width */}
                 <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 w-full">
                     <div className="text-center max-w-3xl md:max-w-5xl mx-auto">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-10 sm:mb-8 leading-tight">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-white mb-10 sm:mb-8 leading-tight">
                             LEND WITH CONFIDENCE,
                             <br />
                             <span className="text-blue-600">BORROW WITH PROTECTION,</span>
@@ -168,18 +168,18 @@ const Page = () => {
                             STAY LIQUID
                         </h1>
 
-                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 text-gray-300 mb-10 sm:mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
                         In DeFi, the smartest move is staying safe. CompoundSafe helps you monitor your positions, get instant alerts, and protect your assets from unexpected liquidation — while you keep earning.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 py-[3rem]">
                             <Link 
                                 href="/dashboard"
-                                className="w-full sm:w-auto bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
+                                className="w-full sm:w-auto bg-gray-800 bg-gray-700 hover:bg-gray-700 hover:bg-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px] text-center"
                             >
                                 LAUNCH COMPOUND SAFE
                             </Link>
-                            <button className="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
+                            <button className="w-full sm:w-auto border-2 border-gray-300 border-gray-600 text-gray-700 text-gray-300 hover:border-gray-400 hover:border-gray-500 hover:bg-gray-50 hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
                                 SEE HOW IT WORKS
                             </button>
                         </div>

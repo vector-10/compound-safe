@@ -43,12 +43,12 @@ export default function WalletConnect({ onAddressChange }: WalletConnectProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-      <h2 className="text-xl font-semibold mb-4">Connect Wallet or Watch Address</h2>
+    <div className="bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+      <h2 className="text-xl font-semibold mb-4 text-white">Connect Wallet or Watch Address</h2>
       
       {connectedAddress && (
-        <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded">
-          <p className="text-sm text-green-700">
+        <div className="mb-4 p-3 bg-green-900/20 border border-green-800 rounded">
+          <p className="text-sm text-green-400">
             Connected: {connectedAddress.slice(0, 6)}...{connectedAddress.slice(-4)}
           </p>
         </div>
@@ -66,10 +66,10 @@ export default function WalletConnect({ onAddressChange }: WalletConnectProps) {
 
       <div className="relative mb-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300" />
+          <div className="w-full border-t border-gray-700" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white text-gray-500">Or watch any address</span>
+          <span className="px-2 bg-gray-800 text-gray-400">Or watch any address</span>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export default function WalletConnect({ onAddressChange }: WalletConnectProps) {
             value={watchAddress}
             onChange={(e) => setWatchAddress(e.target.value)}
             placeholder="0x1234...abcd (paste any wallet address)"
-            className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm"
+            className="flex-1 border border-gray-700 bg-gray-900 text-white rounded px-3 py-2 text-sm placeholder-gray-400"
           />
           <button
             type="submit"

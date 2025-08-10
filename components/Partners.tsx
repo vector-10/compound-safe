@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
 
 interface PositionProps {
   left: string;
@@ -52,8 +51,8 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ name, position, size = 36, ho
         <span 
           className={`text-sm lg:text-xl font-bold ${
             isHovered 
-              ? 'text-blue-400 dark:text-blue-300' 
-              : 'text-gray-200 dark:text-gray-300'
+              ? 'text-blue-300' 
+              : 'text-gray-300'
           } transition-colors whitespace-nowrap`}
         >
           {name}
@@ -92,15 +91,15 @@ const MobilePartnerLogo: React.FC<{name: string, size?: number}> = ({ name, size
 
   return (
     <div 
-      className="flex items-center justify-center space-x-2 py-2 px-3 cursor-pointer rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="flex items-center justify-center space-x-2 py-2 px-3 cursor-pointer rounded-md hover:bg-gray-800 transition-colors"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <span 
         className={`text-sm font-medium ${
           isHovered 
-            ? 'text-blue-500 dark:text-blue-400' 
-            : 'text-gray-600 dark:text-gray-300'
+            ? 'text-blue-400' 
+            : 'text-gray-300'
         } transition-colors whitespace-nowrap`}
       >
         {name}
@@ -125,8 +124,6 @@ const Partners = () => {
   const orbRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLElement>(null);
   const [orbSize, setOrbSize] = useState(400);
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
 
   useEffect(() => {
     setIsClient(true);
@@ -136,7 +133,6 @@ const Partners = () => {
     const handleResize = () => {
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        // Bigger orb for desktop - increased from 0.4 to 0.5 and max from 400 to 500
         const newSize = Math.min(containerWidth * 0.5, 500);
         setOrbSize(newSize);
       }
@@ -170,15 +166,12 @@ const Partners = () => {
       'POLYGON', 'AAVE', 'BASE', 'ARBITRUM'
     ];
     
-    // Improved spacing to prevent overlap
     return partners.map((name, index) => {
       const row = Math.floor(index / 4); 
       const col = index % 4; 
       
-      // Increased spacing: was 150px, now 180px between columns
-      // Extended the overall width: was 300px, now 360px from center
       const left = `calc(50% - 360px + ${col * 180}px)`;
-      const top = `calc(50% - 50px + ${row * 90}px)`; // Also increased row spacing from 80px to 90px
+      const top = `calc(50% - 50px + ${row * 90}px)`;
       
       return {
         name,
@@ -195,7 +188,7 @@ const Partners = () => {
       <section className="py-16 w-full relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium mb-8">
+            <p className="text-sm text-gray-400 uppercase tracking-wide font-medium mb-8">
               BACKED BY TRUSTED PARTNERS
             </p>
           </div>
@@ -213,15 +206,13 @@ const Partners = () => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <p className="text-sm md:text-xl text-gray-500 dark:text-gray-400 uppercase tracking-wider font-medium md:font-bold">
+          <p className="text-sm md:text-xl text-gray-400 uppercase tracking-wider font-medium md:font-bold">
             BACKED BY TRUSTED PARTNERS
           </p>
         </div>
         
-        {/* Mobile: Simple centered grid with optional small orb */}
         <div className="lg:hidden">
           <div className="relative max-w-md mx-auto">
-            {/* Optional small decorative orb behind the content */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-b from-blue-600/10 to-blue-800/5 rounded-full blur-xl pointer-events-none -z-10" />
             
             <div className="relative z-10">
@@ -239,24 +230,21 @@ const Partners = () => {
           </div>
         </div>
         
-        {/* Desktop: Orb with positioned partners */}
         <div className="hidden lg:block">
-          <div className="relative h-[500px] flex items-center justify-center"> {/* Increased height from 400px to 500px */}
+          <div className="relative h-[500px] flex items-center justify-center">
             <div 
               ref={orbRef}
               className="relative transition-all duration-700"
               style={{ width: orbSize, height: orbSize }}
             >
               <div
-                className="absolute rounded-full bg-gradient-to-b from-gray-950 via-gray-800 to-gray-700 dark:from-black dark:via-gray-800 dark:to-gray-600"
+                className="absolute rounded-full bg-gradient-to-b from-black via-gray-800 to-gray-600"
                 style={{
                   width: '100%',
                   height: '100%',
                   filter: 'blur(2px)',
-                  opacity: isDark ? 0.85 : 0.3,
-                  boxShadow: isDark 
-                    ? '0 0 40px rgba(59, 130, 246, 0.3), inset 0 0 40px rgba(59, 130, 246, 0.1)'
-                    : '0 0 40px rgba(59, 130, 246, 0.1), inset 0 0 40px rgba(59, 130, 246, 0.05)'
+                  opacity: 0.85,
+                  boxShadow: '0 0 40px rgba(59, 130, 246, 0.3), inset 0 0 40px rgba(59, 130, 246, 0.1)'
                 }}
               />
               
@@ -268,7 +256,7 @@ const Partners = () => {
                 }}
               >
                 <div 
-                  className="absolute bg-gradient-to-t from-blue-500/50 via-blue-600/20 to-gray-700 dark:from-blue-500/40 dark:via-blue-600/30 dark:to-transparent"
+                  className="absolute bg-gradient-to-t from-blue-500/40 via-blue-600/30 to-transparent"
                   style={{
                     width: '100%',
                     height: '120%',
@@ -292,7 +280,6 @@ const Partners = () => {
               />
             </div>
 
-            {/* Desktop partners with logos */}
             {positionedPartners.map((partner, index) => (
               <PartnerLogo
                 key={index}
@@ -305,11 +292,10 @@ const Partners = () => {
         </div>
       </div>
 
-      {/* Desktop background gradient */}
       <div 
         className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none"
         style={{
-          background: `radial-gradient(circle at center, ${isDark ? 'rgba(30, 64, 175, 0.05)' : 'rgba(59, 130, 246, 0.03)'} 0%, transparent 70%)`,
+          background: 'radial-gradient(circle at center, rgba(30, 64, 175, 0.05) 0%, transparent 70%)',
         }}
       />
     </section>

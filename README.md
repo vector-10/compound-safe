@@ -1,12 +1,12 @@
-# CompoundSafe: [Live Application](https://compound-safe.vercel.app)
+# [CompoundSafe](https://compound-safe.vercel.app)
 
-Live Link:[Live Application](https://compound-safe.vercel.app)
+Live Link:  [Live Application](https://compound-safe.vercel.app)
 
 A comprehensive web application, enabling users manage risks and monitor the position of their assets on Compound Finance Protocol. It offers real-time AI powered alerts through a telegram integration for notifications and Conditional emails.
 
 ## Problem Statement
 
-Untimely Liquidation remains one of the biggest risk for DeFi users(lenders and borrowers) till date, the current solutions that exist require manual monitoring with complex UX or basic threshold alerts without any context to users positioning.This makes DeFi a very tedious endeavour, with users always havign to be conscious of prices and market volatility. It also keeps the barrier to entry for Web3 DeFi very high, users should be able to let assets work for them and have automated risk management strategies that make DeFi more inclusive.
+UNTIMELY LIQUIDATION remains one of the biggest risk for DeFi users(lenders and borrowers) till date, the current solutions that exist require manual monitoring with complex UX or basic threshold alerts without any context to users positioning.This makes DeFi a very tedious endeavour, with users always havign to be conscious of prices and market volatility. It also keeps the barrier to entry for Web3 DeFi very high, users should be able to let assets work for them and have automated risk management strategies that make DeFi more inclusive.
 
 ## Solution
 
@@ -21,7 +21,7 @@ CompoundSafe solves through an intuitive user interface/experience, comprehensiv
 
 ### Core Functionality
 - **Position Health Monitoring**: Real-time calculation of liquidation risk using Compound V3 data
-- **Multi-Level Alert System**: Progressive warnings as positions approach liquidation, additional insights to enable lenders increase yialds based on interest rates.
+- **Multi-Level Alert System**: Progressive warnings as positions approach liquidation, additional insights to enable lenders increase yields based on interest rates.
 - **Telegram Integration**: Instant notifications with QR code and deep-link setup for Telegram
 - **AI-Powered Insights**: Contextual explanations of position metrics and risk factors with AIUI
 

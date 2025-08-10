@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import Benefits from "@/components/Benefits";
 import Link from 'next/link';
 import { FaShieldAlt } from "react-icons/fa";
-import { ThemeToggle } from '@/components/ThemeToggle'; 
+ 
 
 const Page = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,7 +48,7 @@ const Page = () => {
                         </div>
 
                         <div className="md:flex items-center space-x-4 hidden">
-                            <ThemeToggle />
+                        
                             
                             <Link 
                                 href="/dashboard" 
@@ -59,7 +59,7 @@ const Page = () => {
                         </div>
 
                         <div className="lg:hidden flex items-center space-x-3">
-                            <ThemeToggle />
+                      
                             <button 
                                 onClick={() => setMobileMenuOpen(true)}
                                 className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"

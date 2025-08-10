@@ -17,14 +17,14 @@ function AIUIModal({ isOpen, onClose, title, explanation, loading }: AIUIModalPr
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full p-6">
+      <div className="bg-gray-800 rounded-lg max-w-md w-full p-6">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-semibold text-white">
              {title} Explained
           </h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+            className="text-gray-400 hover:text-gray-300"
           >
             ✕
           </button>
@@ -33,12 +33,12 @@ function AIUIModal({ isOpen, onClose, title, explanation, loading }: AIUIModalPr
         <div className="mb-4">
         {loading ? (
             <div className="animate-pulse">
-                <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-full mb-2"></div>
-                <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-4/5 mb-2"></div>
-                <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+                <div className="h-4 bg-gray-600 rounded w-full mb-2"></div>
+                <div className="h-4 bg-gray-600 rounded w-4/5 mb-2"></div>
+                <div className="h-4 bg-gray-600 rounded w-3/4"></div>
             </div>
             ) : (
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
                 {explanation}
             </p>
             )}
@@ -126,7 +126,7 @@ function ExplainButton({ metric, value, position }: ExplainButtonProps) {
     <>
       <button
         onClick={handleExplain}
-        className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium hover:underline transition-colors"
+        className="text-blue-400 hover:text-blue-300 text-sm font-medium hover:underline transition-colors"
         disabled={position.loading}
       >
         Explain
@@ -150,9 +150,9 @@ interface MetricCardProps {
 export default function AIUIMetricCards({ position }: MetricCardProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+      <div className="bg-gray-800 p-6 rounded-lg shadow border border-gray-700">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-semibold text-white">
             Total Supplied
           </h3>
           <ExplainButton 
@@ -161,14 +161,14 @@ export default function AIUIMetricCards({ position }: MetricCardProps) {
             position={position}
           />
         </div>
-        <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+        <p className="text-2xl font-bold text-blue-400">
           ${position.loading ? '...' : position.suppliedUSDCFormatted}
         </p>
       </div>
       
-      <div className="bg-white/90 dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+      <div className="bg-gray-800 p-6 rounded-lg shadow border border-gray-700">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-semibold text-white">
             Total Borrowed
           </h3>
           <ExplainButton 
@@ -177,14 +177,14 @@ export default function AIUIMetricCards({ position }: MetricCardProps) {
             position={position}
           />
         </div>
-        <p className="text-2xl font-bold text-red-600 dark:text-red-400">
+        <p className="text-2xl font-bold text-red-400">
           ${position.loading ? '...' : position.borrowedUSDCFormatted}
         </p>
       </div>
 
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+      <div className="bg-gray-800 p-6 rounded-lg shadow border border-gray-700">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-semibold text-white">
             Collateral Value
           </h3>
           <ExplainButton 
@@ -193,17 +193,17 @@ export default function AIUIMetricCards({ position }: MetricCardProps) {
             position={position}
           />
         </div>
-        <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+        <p className="text-2xl font-bold text-blue-400">
           ${position.loading ? '...' : position.collateralValueUSD.toLocaleString()}
         </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-400 mt-1">
           WETH @ ${position.loading ? '...' : position.wethPrice.toLocaleString()}
         </p>
       </div>
       
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+      <div className="bg-gray-800 p-6 rounded-lg shadow border border-gray-700">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-semibold text-white">
             Position Health
           </h3>
           <ExplainButton 
@@ -213,13 +213,13 @@ export default function AIUIMetricCards({ position }: MetricCardProps) {
           />
         </div>
         <p className={`text-2xl font-bold ${
-          position.riskLevel === 'safe' ? 'text-green-600 dark:text-green-400' :
-          position.riskLevel === 'warning' ? 'text-yellow-600 dark:text-yellow-400' :
-          'text-red-600 dark:text-red-400'
+          position.riskLevel === 'safe' ? 'text-green-400' :
+          position.riskLevel === 'warning' ? 'text-yellow-400' :
+          'text-red-400'
         }`}>
           {position.loading ? '--' : `${position.healthPercentage.toFixed(0)}%`}
         </p>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-2">
+        <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
           <div 
             className={`h-2 rounded-full transition-all duration-300 ${
               position.riskLevel === 'safe' ? 'bg-green-500' :

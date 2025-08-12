@@ -50,18 +50,18 @@ const FeatureScroll = () => {
         },
         {
             icon: <FileText className="h-6 w-6 text-blue-500" />,
-            title: "Smart Contract Auditing Tools",
-            description: "Integrate smart contract auditing tools to ensure the security of deployed protocols, reducing risk exposure for users."
+            title: "Automated AI Powered Alert System",
+            description: "LIquidation risk messages are sent through telegram bots powered by Gemini API"
         },
         {
             icon: <Globe className="h-6 w-6 text-blue-500" />,
-            title: "Integration with DeFi Aggregators",
-            description: "Partner with DeFi aggregators to increase visibility to our liquidity pools, allowing seamless access across multiple platforms."
+            title: "Integration with Compounf Finance",
+            description: "Seamless Integrations with the Compound V3 Comet for enabling user monitoring of lending and borrowing position on testnet and mainnet "
         },
         {
             icon: <Shield className="h-6 w-6 text-blue-500" />,
             title: "Automated Risk Management",
-            description: "Set up automated risk management protocols that adjust positions based on market volatility to prevent liquidations."
+            description: "Set up automated risk management protocols that offers suggestions to adjust positions based on market volatility to prevent liquidations."
         },
         {
             icon: <Zap className="h-6 w-6 text-blue-500" />,

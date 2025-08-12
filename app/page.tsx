@@ -169,9 +169,9 @@ const Page = () => {
                             >
                                 LAUNCH COMPOUND SAFE
                             </Link>
-                            <button className="w-full sm:w-auto border-2 border-gray-600 text-gray-300 hover:border-gray-500 hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
+                            <Link href="/dashboard" className="w-full sm:w-auto border-2 border-gray-600 text-gray-300 hover:border-gray-500 hover:bg-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg transition-colors min-w-[200px]">
                                 SEE HOW IT WORKS
-                            </button>
+                            </Link>
                         </div>
 
                         <div className="relative mb-16 sm:mb-20">

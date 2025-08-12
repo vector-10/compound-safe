@@ -38,6 +38,7 @@ CompoundSafe solves through an intuitive user interface/experience, comprehensiv
 - **Responsive Design**: Mobile first design, philosophy, optimized for desktops
 - **Comprehensive Dashboard**: Complete position overview with risk analysis and AI Explanations for easy understanding seamless usage.
 
+
 ## Architecture
 
 ### Frontend Stack
@@ -83,14 +84,35 @@ cd compound-safe
 ```bash
 pnpm install
 ```
-
 ### Environment Configuration
 Create `.env.local` file:
 ```env
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_id
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_wallet_connect_id
+NEXT_PUBLIC_RPC_URL=https://mainnet.infura.io/v3/your_infura_key
+NEXT_PUBLIC_CHAIN=mainnet
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
 GEMINI_API_KEY=your_gemini_api_key
+```
+
+Network configuration is environment-driven via `.env` variables, allowing seamless switching between Sepolia testnet and Ethereum mainnet by changing:
+* `NEXT_PUBLIC_CHAIN` (`mainnet` or `sepolia`)
+* `NEXT_PUBLIC_RPC_URL` (corresponding RPC endpoint)
+
+This setup ensures easy testing and deployment without code changes.
+
+**Example configurations:**
+
+**For Mainnet:**
+```env
+NEXT_PUBLIC_CHAIN=mainnet
+NEXT_PUBLIC_RPC_URL=https://mainnet.infura.io/v3/your_infura_key
+```
+
+**For Sepolia Testnet:**
+```env
+NEXT_PUBLIC_CHAIN=sepolia
+NEXT_PUBLIC_RPC_URL=https://sepolia.infura.io/v3/your_infura_key
 ```
 
 ### Database Setup

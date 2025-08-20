@@ -8,6 +8,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useToast } from '@/lib/use-toast';
 import { CompoundPosition } from '@/lib/compound';
 
+
 interface AIUIModalProps {
   isOpen: boolean;
   onClose: () => void;
